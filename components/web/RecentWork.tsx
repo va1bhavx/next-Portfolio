@@ -28,7 +28,7 @@ const RecentWork = () => {
           </Paragraph>
         </Link>
       </div>
-      <div className="flex flex-wrap flex-col md:flex-row gap-6">
+      <div className="grid md:grid-cols-2 gap-6 w-full">
         {PROJECTS.slice(0, 2).map((project) => (
           <ProjectCard
             project={{

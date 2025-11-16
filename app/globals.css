@@ -29,3 +29,10 @@ body {
 .sans {
   font-family: var(--font-sans);
 }
+
+button,
+ul,
+li,
+a {
+  font-family: var(--font-body);
+}

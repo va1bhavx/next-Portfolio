@@ -9,7 +9,7 @@ interface PillsProps {
 }
 
 const statusClass = {
-  info: `text-blue-700 bg-gradient-to-r from-blue-100 to-cyan-100 ring ring-blue-700`,
+  info: `bg-linear-to-r from-gray-200 to-gray-100 text-neutral-800 ring ring-gray-200`,
   success: `text-green-700 bg-gradient-to-r from-green-100 to-emerald-100 ring ring-green-700`,
   warning: `text-red-700 bg-gradient-to-r from-red-50 to-red-100 ring ring-red-700`,
 };
@@ -21,9 +21,9 @@ const Pills: React.FC<PillsProps> = ({
   status = "info",
 }) => {
   return (
-    <div>
+    <div aria-label={label}>
       <Paragraph
-        cn={`px-2 py-1 text-sm rounded-lg ${statusClass[status]} ${cn}`}
+        cn={`px-2 py-1 text-xs rounded-lg body ${statusClass[status]} ${cn}`}
       >
         {children}
       </Paragraph>

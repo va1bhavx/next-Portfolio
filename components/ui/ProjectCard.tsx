@@ -21,7 +21,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
     <div
       key={project.id}
-      className="bg-[#efefef] border-2 border-black px-5 py-4 max-w-lg shadow-[4px_4px_0px_#000] hover:shadow-[6px_6px_0px_#000] transition-all duration-300 group"
+      className="bg-[#efefef] border-2 border-black px-5 py-4  shadow-[4px_4px_0px_#000] hover:shadow-[6px_6px_0px_#000] transition-all duration-300 group"
     >
       {/* Project Header */}
       <div className="border-b-2 border-black pb-3 mb-3">

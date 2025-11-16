@@ -1,4 +1,3 @@
-import React from "react";
 import Container from "../ui/Container";
 import Heading from "../ui/Heading";
 import { BrainCircuit, ChevronRight, Link2 } from "lucide-react";
@@ -68,7 +67,7 @@ const ExperienceSection = () => {
           </Paragraph>
 
           {/* List with styled bullets */}
-          <ul className="space-y-2 pl-5 list-disc text-gray-600">
+          <ul className=" body space-y-2 pl-5 list-disc text-gray-600">
             <li>Login and authentication flows</li>
             <li>Company registration and user onboarding</li>
             <li>Project creation, work management, and applications</li>

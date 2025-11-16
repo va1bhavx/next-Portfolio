@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Container from "../ui/Container";
 import Heading from "../ui/Heading";
 import Paragraph from "../ui/Paragraph";
@@ -44,18 +44,6 @@ const TESTIMONIALS = [
       //   imgSrc: "/testimonials/arjun.jpg",
     },
   },
-  //   {
-  //     id: 4,
-  //     appreciation:
-  //       "I loved how Vaibhav approached challenges. Instead of quick fixes, he always thought long-term and suggested solutions that would keep our platform scalable. Truly a developer who cares about the bigger picture.",
-  //     user: {
-  //       id: 4,
-  //       name: "Neha Kapoor",
-  //       company: "Innovate Labs",
-  //       designation: "CTO",
-  //       //   imgSrc: "/testimonials/neha.jpg",
-  //     },
-  //   },
 ];
 
 const Testimonials = () => {
@@ -104,7 +92,6 @@ const Testimonials = () => {
 
           <div className="flex gap-2 justify-between items-center">
             <div className="flex gap-2 items-center">
-              {/* <div className="w-7 h-7 rounded-full animate-pulse bg-gray-400" /> */}
               <div>
                 <Paragraph cn="text-sm text-gray-800 leading-relaxed">
                   {currentTestimonial.user.name}
@@ -120,7 +107,7 @@ const Testimonials = () => {
               <div onClick={handlePrev}>
                 <Button
                   variant="ghost"
-                  disabled={activeTestimonial === 0} // disable if at first testimonial
+                  disabled={activeTestimonial === 0}
                   cn={
                     activeTestimonial === 0
                       ? "opacity-40 cursor-not-allowed"
@@ -149,8 +136,7 @@ const Testimonials = () => {
         </div>
       </div>
 
-      <div className="relative bg-transparent border-2 border-black px-5 py-6 mt-12 w-full max-w-2xl mx-auto font-serif shadow-[4px_4px_0px_#000] hover:shadow-[6px_6px_0px_#000]">
-        {/* Header strip */}
+      {/* <div className="relative bg-transparent border-2 border-black px-5 py-6 mt-12 w-full max-w-2xl mx-auto font-serif shadow-[4px_4px_0px_#000] hover:shadow-[6px_6px_0px_#000]">
         <div className="border-b border-black/40 pb-2 mb-4 flex items-center justify-between">
           <span className="uppercase text-xs tracking-widest text-gray-700">
             Classified
@@ -158,7 +144,6 @@ const Testimonials = () => {
           <span className="text-xs italic text-gray-600">Open Role Notice</span>
         </div>
 
-        {/* Headline */}
         <Heading
           tag="h1"
           cn="text-xl md:text-2xl  font-bold text-center text-gray-900 mb-3"
@@ -166,16 +151,13 @@ const Testimonials = () => {
           Frontend Developer Available
         </Heading>
 
-        {/* Description */}
         <Paragraph cn="text-sm md:text-base text-gray-600 leading-relaxed text-balance text-center mb-4">
           ReactJS & NextJS developer. Experienced in building apps from scratch,
           now seeking a full-time role.
         </Paragraph>
 
-        {/* Divider */}
         <div className="border-t border-dashed border-black/30 mb-4"></div>
 
-        {/* CTA */}
         <div className="flex flex-wrap gap-3">
           <a
             href="mailto:vaibhav.pandey1508@gmail.com"
@@ -194,7 +176,7 @@ const Testimonials = () => {
             LinkedIn
           </a>
         </div>
-      </div>
+      </div> */}
     </Container>
   );
 };
