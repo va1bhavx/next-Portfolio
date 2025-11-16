@@ -1,9 +1,7 @@
-import React from "react";
 import Container from "../ui/Container";
 import Heading from "../ui/Heading";
 import Paragraph from "../ui/Paragraph";
 import Image from "next/image";
-import Pills from "../ui/Pills";
 import Button from "../ui/Button";
 import { Scroll } from "lucide-react";
 import Link from "next/link";
@@ -16,6 +14,8 @@ const SKILLS = [
   { id: 5, name: "NextJS", img: "/skills/next.webp" },
   { id: 6, name: "TypeScript", img: "/skills/ts.webp" },
   { id: 7, name: "TailwindCSS", img: "/skills/tailwindcss.webp" },
+  { id: 8, name: "Axios", img: "/skills/axios.webp" },
+  { id: 9, name: "Redux", img: "/skills/redux.webp" },
 ];
 
 const HeroSection = () => {
@@ -36,12 +36,12 @@ const HeroSection = () => {
 
         <div className="flex flex-col gap-4 w-full md:w-[75%]">
           <div className="flex items-center justify-between">
-            <Pills status="info" cn="w-max">
+            <span className="px-2 py-0.5 rounded-md text-xs font-medium bg-linear-to-r from-blue-100 to-blue-200 text-blue-800 ring ring-blue-300">
               Special Edition
-            </Pills>
+            </span>
 
             <Paragraph cn="text-balance text-gray-600 text-sm self-end">
-              Published: 02/09/2025
+              Published: 16/11/2025
             </Paragraph>
           </div>
 
@@ -68,12 +68,6 @@ const HeroSection = () => {
               powered by caffeine and curiosity. It’s not just code anymore it’s
               my way of making life.
             </Paragraph>
-            {/* <Paragraph cn="text-balance text-gray-600">
-              In my role, I’ve built full projects from scratch shaping the UI,
-              structuring the code, and watching ideas grow into working
-              products. Every project pushed me to think deeper, solve real
-              problems, and deliver something people can actually use.
-            </Paragraph> */}
           </div>
 
           <div>

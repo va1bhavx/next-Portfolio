@@ -1,24 +1,17 @@
+import BackButton from "@/components/ui/BackButton";
 import Container from "@/components/ui/Container";
 import Heading from "@/components/ui/Heading";
-import Paragraph from "@/components/ui/Paragraph";
 import ProjectCard from "@/components/ui/ProjectCard";
 import { PROJECTS } from "@/helper/data/ProjectData";
-import { ChevronLeft } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
 
 const Projects = () => {
   return (
     <Container cn=" items-start">
-      <div className="flex items-start justify-between w-full self-start mb-8">
-        <Link href={"/"} aria-label={`Go back to projects page`}>
-          <span className="flex items-center gap-2">
-            <ChevronLeft />
-            Go back
-          </span>
-        </Link>
-      </div>
+      <BackButton
+        url="/"
+        title="Go Back"
+        label="Link to go back to home page"
+      />
       <div className="flex items-start justify-between w-full self-start mb-8">
         <Heading
           tag="h1"
@@ -27,7 +20,7 @@ const Projects = () => {
           Projects
         </Heading>
       </div>
-      <div className="flex flex-wrap flex-col md:flex-row gap-6">
+      <div className="grid md:grid-cols-2 gap-6 w-full">
         {PROJECTS.map((project) => (
           <ProjectCard
             project={{

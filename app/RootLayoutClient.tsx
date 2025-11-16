@@ -22,7 +22,7 @@ export default function RootLayoutClient({
   return (
     <>
       {loading && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-white transition-opacity duration-500">
+        <div className="fixed inset-0 z-9999 flex items-center justify-center bg-white transition-opacity duration-500">
           <LoadingScreen imageSrc="/loading.webp" />
         </div>
       )}
@@ -32,7 +32,7 @@ export default function RootLayoutClient({
           loading ? "opacity-0 pointer-events-none" : "opacity-100"
         }`}
       >
-        <header className="sticky top-0 z-[50] bg-[#ebebeb] md:max-w-6xl w-full mx-auto pt-2">
+        <header className="sticky top-0 z-50 bg-[#ebebeb] md:max-w-6xl w-full mx-auto pt-2">
           <Navbar />
         </header>
         <main className="min-h-screen">{children}</main>
