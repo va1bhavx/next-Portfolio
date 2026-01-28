@@ -5,7 +5,7 @@ import { Github, Linkedin, Twitter } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className=" mt-12 w-full ">
+    <footer className=" mt-12  md:max-w-4xl w-full mx-auto">
       <div className="max-w-6xl mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-800">
         {/* Left Column - Newspaper style issue info */}
         <div className="text-sm flex flex-col gap-2">

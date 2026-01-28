@@ -79,27 +79,32 @@ const Testimonials = () => {
           <Heading tag="h2" cn="text-xl header text-black w-max font-semibold">
             What people say
           </Heading>
-          <Paragraph cn="text-sm text-gray-600 leading-relaxed">
+          <Paragraph cn="text-sm text-gray-600 leading-relaxed body">
             Real words from those who’ve worked with me their experiences,
             thoughts, and stories that reflect my work and dedication.
           </Paragraph>
         </div>
 
         <div className="max-w-lg w-full flex flex-col gap-4">
-          <Paragraph cn="text-md text-gray-800 text-balance leading-relaxed body border-b border-black/20 pb-2">
+          <Paragraph cn="text-md text-zinc-600 text-balance leading-relaxed body border-b border-black/20 pb-2">
             "{currentTestimonial.appreciation}"
           </Paragraph>
 
           <div className="flex gap-2 justify-between items-center">
             <div className="flex gap-2 items-center">
-              <div>
-                <Paragraph cn="text-sm text-gray-800 leading-relaxed">
-                  {currentTestimonial.user.name}
-                </Paragraph>
-                <Paragraph cn="text-xs text-gray-600 leading-relaxed">
-                  {currentTestimonial.user.designation},{" "}
-                  {currentTestimonial.user.company}
-                </Paragraph>
+              <div className="flex items-center gap-3">
+                <div className="bg-zinc-700 rounded-full w-10 h-10 text-center flex items-center justify-center text-white body">
+                  {currentTestimonial.user.name.charAt(0)}
+                </div>
+                <div>
+                  <Paragraph cn="text-sm text-gray-800 leading-relaxed">
+                    {currentTestimonial.user.name}
+                  </Paragraph>
+                  <Paragraph cn="text-xs text-gray-600 leading-relaxed">
+                    {currentTestimonial.user.designation},{" "}
+                    {currentTestimonial.user.company}
+                  </Paragraph>
+                </div>
               </div>
             </div>
 

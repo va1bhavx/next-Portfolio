@@ -19,14 +19,6 @@ const roboto = Roboto({
   display: "swap",
 });
 
-const fleur = Fleur_De_Leah({
-  subsets: ["latin"],
-  variable: "--font-fleur",
-  display: "swap",
-  weight: "400",
-});
-
-// ✅ Metadata
 export const metadata: Metadata = {
   title: "Vaibhav Kumar | ReactJS Developer",
   description:
@@ -69,7 +61,7 @@ export const metadata: Metadata = {
     title: "Vaibhav Kumar | ReactJS Developer",
     description:
       "React.js Developer with experience building modern, high-performance, and user-focused applications.",
-    creator: "@SyntaxError408",
+    creator: "@va1bhavx",
     images: ["/banner.png"],
   },
 
@@ -96,10 +88,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${roboto.variable} ${fleur.variable}`}
-    >
+    <html lang="en" className={`${inter.variable} ${roboto.variable}`}>
       <body>
         <RootLayoutClient>{children}</RootLayoutClient>
       </body>

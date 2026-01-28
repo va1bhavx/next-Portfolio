@@ -1,9 +1,64 @@
 export const EXPERIENCE = [
   {
-    id: 2,
+    id: Math.floor(Math.random() * 9999),
+    company: "Aptagrim Limited",
+    role: "NextJS Developer",
+    duration: "Oct 2025 – Present",
+    description:
+      "At BusyBrains, I contributed to the development of a comprehensive real estate platform that serves multiple types of users including agents, clients, and administrators. My focus was on creating dynamic, responsive, and efficient user interfaces while integrating robust state management and data handling.",
+    tech: [
+      "NextJS",
+      "TypeScript",
+      "Zod",
+      "Redux",
+      "TailwindCSS",
+      "MantineUI",
+      "Axios",
+      "Tanstack Query",
+      "REST APIs",
+    ],
+    slug: "/busybrains",
+    achievements: [
+      "Designed and implemented a multi-role authentication system ensuring secure access control across agents, clients, and admins.",
+      "Developed dynamic dashboards with role-specific views, providing meaningful data insights for each user type.",
+      "Optimized API calls and data fetching, and improving overall platform performance.",
+      "Worked on multiple design templates, including e-commerce platforms, saree selling websites, dashboards, and admin panels.",
+      "Collaborated with UI/UX designers to translate wireframes into responsive, interactive interfaces.",
+      "Implemented reusable React components and state management solutions to streamline development across projects.",
+      "Integrated third-party APIs for payments, notifications, and analytics to enhance platform functionality.",
+      "Ensured cross-browser compatibility and responsiveness for seamless user experience across devices.",
+    ],
+
+    responsibilities: [
+      "Led the frontend development of the platform using NextJS, integrating multiple modules and reusable components.",
+      "Implemented Context API for scalable state management, handling complex data across multiple user roles.",
+      "Worked closely with backend developers to consume and validate REST APIs, ensuring data consistency and integrity.",
+      "Conducted code reviews and optimized component performance, maintaining a high-quality codebase.",
+    ],
+    challenges: [
+      "Handling complex multi-role permissions while ensuring a seamless user experience.",
+      "Building dynamic dashboards that update in real-time with minimal performance overhead.",
+      "Integrating various APIs with inconsistent data structures without breaking UI components.",
+    ],
+    learned: [
+      "Mastered advanced NextJS features such as SSR, SSG, and incremental static regeneration for high-performance pages.",
+      "Improved expertise in managing complex React state with multiple Context providers.",
+      "Gained experience in designing highly reusable and maintainable frontend components.",
+      "Enhanced understanding of UX design principles for multi-role applications.",
+    ],
+    notableProjects: [
+      {
+        name: "BitsndBricks Platform",
+        link: "https://bitsndbricks.com",
+      },
+    ],
+  },
+  {
+    id: Math.floor(Math.random() * 9999),
+
     company: "BusyBrains",
     role: "Associate React Developer",
-    duration: "Apr 2025 – Present",
+    duration: "Apr 2025 – Sept 2025",
     description:
       "At BusyBrains, I contributed to the development of a comprehensive real estate platform that serves multiple types of users including agents, clients, and administrators. My focus was on creating dynamic, responsive, and efficient user interfaces while integrating robust state management and data handling.",
     tech: [
@@ -53,7 +108,8 @@ export const EXPERIENCE = [
     ],
   },
   {
-    id: 1,
+    id: Math.floor(Math.random() * 9999),
+
     company: "PetEye",
     role: "ReactJS Developer",
     duration: "May 2024 – Feb 2025",
@@ -99,7 +155,8 @@ export const EXPERIENCE = [
     notableProjects: [{ name: "PetEye Dashboard", link: "https://peteye.pet" }],
   },
   {
-    id: 3,
+    id: Math.floor(Math.random() * 9999),
+
     company: "Freelance + Internships",
     role: "Frontend Developer",
     duration: "May 2023 – Apr 2024",
