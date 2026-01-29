@@ -50,7 +50,10 @@ const Navbar = () => {
         {/* Desktop Links */}
         <ul className="hidden md:flex items-center gap-4">
           {LINKS.map((link) => {
-            const isActive = pathname === link.url;
+            const isActive =
+              link.url === "/"
+                ? pathname === "/"
+                : pathname.startsWith(link.url);
 
             return (
               <li key={link.id}>
@@ -76,9 +79,6 @@ const Navbar = () => {
         >
           {isMenuOpen ? <X /> : <Menu />}
         </button>
-
-        {/* Social Links */}
-        {/* <SocialComponent /> */}
       </div>
 
       {/* Mobile Menu */}
@@ -95,8 +95,10 @@ const Navbar = () => {
               <li key={link.id}>
                 <Link
                   href={link.url}
-                  className={`body hover:underline transition-all duration-300 text-neutral-600 ${
-                    isActive ? "font-bold " : ""
+                  className={`body hover:underline transition-all duration-300  ${
+                    isActive
+                      ? "font-bold text-neutral-300 "
+                      : "text-neutral-500"
                   }`}
                   aria-label={`Navigate to ${link.name} page`}
                   onClick={() => setIsMenuOpen(false)}
