@@ -11,7 +11,7 @@ const HeroSection = () => {
       <section className="flex gap-12 flex-col w-full">
         {/* Identity */}
         <div className="flex flex-col gap-3 max-w-2xl">
-          <Heading tag="h1" cn="text-4xl text-neutral-200">
+          <Heading tag="h1" cn="text-4xl text-neutral-200 text-balance">
             Hi, I’m Vaibhav Kumar
           </Heading>
 
@@ -51,7 +51,7 @@ const HeroSection = () => {
         {/* CTA */}
         <div className="flex flex-wrap gap-4">
           <Link
-            href="https://drive.google.com/file/d/150koLzSA1XvwjKbDMNNTqypAGwS-f7to/view?usp=sharing"
+            href="https://drive.google.com/file/d/1dPULV_REG7IS-1Ouensb18mnr-0WaEyH/view?usp=drive_link"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="View Vaibhav Kumar's resume PDF"
