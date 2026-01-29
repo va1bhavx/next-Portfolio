@@ -1,4 +1,3 @@
-import BackButton from "@/components/ui/BackButton";
 import Container from "@/components/ui/Container";
 import Heading from "@/components/ui/Heading";
 import Paragraph from "@/components/ui/Paragraph";
@@ -9,8 +8,6 @@ const Projects = () => {
   return (
     <Container cn="items-start">
       <section className="flex flex-col gap-10 w-full">
-        <BackButton url="/" title="Back" label="Link to go back to home page" />
-
         <div className="flex flex-col gap-3 max-w-2xl">
           <Heading tag="h1" cn="text-3xl text-neutral-200">
             Projects

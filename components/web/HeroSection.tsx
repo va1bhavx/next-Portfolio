@@ -20,7 +20,7 @@ const HeroSection = () => {
           </Heading>
 
           <Paragraph cn="text-neutral-300 leading-relaxed">
-            Focused on building modern web interfaces with React and Next.js,
+            Focused on building modern web interfaces with React and NextJS,
             with a growing interest in full-stack development.
           </Paragraph>
         </div>

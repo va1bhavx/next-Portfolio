@@ -6,7 +6,7 @@ import { Layout, Blocks, Plug, Gauge } from "lucide-react";
 const CAPABILITIES = [
   {
     title: "Frontend Engineering",
-    desc: "Building clean, responsive, and accessible user interfaces using React and Next.js. Focused on clarity, usability, and long-term maintainability rather than quick hacks.",
+    desc: "Building clean, responsive, and accessible user interfaces using React and NextJS. Focused on clarity, usability, and long-term maintainability rather than quick hacks.",
     icon: Layout,
   },
   {

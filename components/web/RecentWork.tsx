@@ -12,7 +12,7 @@ const RecentWork = () => {
         <div className="flex items-end justify-between w-full">
           <Heading
             tag="h2"
-            cn="text-sm uppercase tracking-widest text-neutral-400"
+            cn="text-lg uppercase tracking-widest text-neutral-400"
           >
             Recent Work
           </Heading>

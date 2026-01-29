@@ -23,7 +23,7 @@ const ExperienceSection = () => {
         {/* Section Heading */}
         <Heading
           tag="h2"
-          cn="text-sm uppercase tracking-widest text-neutral-400"
+          cn="text-lg uppercase tracking-widest text-neutral-400"
         >
           Experience
         </Heading>
@@ -50,7 +50,7 @@ const ExperienceSection = () => {
           {/* Role Description */}
           <div className="lg:col-span-2 flex flex-col gap-6">
             <Paragraph cn="text-neutral-400 leading-relaxed">
-              At Aptagrim, I work as a Next.js developer building scalable,
+              At Aptagrim, I work as a NextJS developer building scalable,
               user-focused web applications. My role involves translating
               product requirements into reliable, production-ready features
               using modern frontend engineering practices.
@@ -59,7 +59,7 @@ const ExperienceSection = () => {
             <ul className="space-y-2 body text-neutral-400 text-sm list-disc pl-5">
               <li>
                 <Paragraph cn="text-neutral-400 leading-relaxed">
-                  Built responsive and modular UI using Next.js and Tailwind CSS
+                  Built responsive and modular UI using NextJS and Tailwind CSS
                 </Paragraph>
               </li>
               <li>
