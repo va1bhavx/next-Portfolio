@@ -19,17 +19,17 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Vaibhav Kumar – React & Next.js Developer Portfolio",
+  title: "Vaibhav Kumar – React & NextJS Developer Portfolio",
   description:
-    "Vaibhav Kumar is a React and Next.js developer building scalable, modern, and user-friendly web applications focused on performance and clean frontend architecture.",
+    "Vaibhav Kumar is a React and NextJS developer building scalable, modern, and user-friendly web applications focused on performance and clean frontend architecture.",
 
   keywords: [
     "Vaibhav Kumar",
     "Vaibhav Kumar Developer",
     "React Developer India",
-    "Next.js Developer",
+    "NextJS Developer",
     "Frontend Developer",
-    "React Next.js Portfolio",
+    "React NextJS Portfolio",
     "JavaScript Developer",
     "Full Stack Developer",
     "MERN Developer",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Vaibhav Kumar – React & Next.js Developer",
+    title: "Vaibhav Kumar – React & NextJS Developer",
     description:
       "Portfolio of Vaibhav Kumar showcasing modern web applications, frontend engineering, and production-grade projects.",
     url: "https://kumarvaibhav.xyz",
@@ -67,9 +67,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Vaibhav Kumar – React & Next.js Developer",
+    title: "Vaibhav Kumar – React & NextJS Developer",
     description:
-      "Frontend developer building scalable React & Next.js applications.",
+      "Frontend developer building scalable React & NextJS applications.",
     creator: "@va1bhavx",
     images: ["https://kumarvaibhav.xyz/banner.png"],
   },

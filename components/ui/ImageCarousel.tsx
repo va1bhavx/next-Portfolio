@@ -129,7 +129,7 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({
             {images.map((image, index) => (
               <div
                 key={index}
-                className="relative w-full h-full flex-shrink-0 cursor-pointer group"
+                className="relative w-full h-full shrink-0 cursor-pointer group"
                 onClick={() => openLightbox(index)}
               >
                 <img
@@ -235,7 +235,7 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({
 
       {/* Lightbox Modal */}
       {isLightboxOpen && (
-        <div className="fixed inset-0  bg-black/95 backdrop-blur-sm z-[9999]">
+        <div className="fixed inset-0  bg-black/95 backdrop-blur-sm z-9999">
           <div className="relative w-full h-full flex items-center justify-center p-4">
             {/* Close Button */}
             <button
@@ -308,7 +308,7 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({
                     <button
                       key={index}
                       onClick={() => setLightboxIndex(index)}
-                      className={`relative flex-shrink-0 w-16 h-10 rounded-md overflow-hidden transition-all duration-200 ${
+                      className={`relative shrink-0 w-16 h-10 rounded-md overflow-hidden transition-all duration-200 ${
                         index === lightboxIndex
                           ? "ring-2 ring-white scale-110"
                           : "hover:scale-110 opacity-60 hover:opacity-100"

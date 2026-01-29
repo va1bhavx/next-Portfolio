@@ -2,13 +2,13 @@ export const EXPERIENCE = [
   {
     id: Math.floor(Math.random() * 9999),
     company: "Aptagrim Limited",
-    role: "Next.js Developer",
+    role: "NextJS Developer",
     duration: "Oct 2025 – Present",
     description:
       "Since joining Aptagrim in October 2025, I have been working closely with the team on SIGMA, a loan recovery and operations platform used for managing field agents, customers, and recovery workflows. My role focuses on building scalable dashboard interfaces, integrating real-time features, and developing tools that improve operational efficiency for internal teams. Alongside SIGMA, I have gradually started contributing to additional internal and client-facing projects.",
 
     tech: [
-      "Next.js",
+      "NextJS",
       "TypeScript",
       "Redux",
       "TailwindCSS",

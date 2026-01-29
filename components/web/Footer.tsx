@@ -5,7 +5,7 @@ import SocialComponent from "../ui/SocialComponent";
 
 const Footer = () => {
   return (
-    <footer className="mt-4 sm:mt-16 max-w-4xl mx-auto">
+    <footer className="mt-4 sm:mt-8 max-w-4xl mx-auto">
       <div className=" px-6 sm:px-0 py-5 flex flex-col gap-8 text-neutral-400">
         {/* Identity */}
         <div className="flex flex-col gap-2">
@@ -14,7 +14,7 @@ const Footer = () => {
           </Heading>
 
           <Paragraph cn="text-sm leading-relaxed max-w-xl">
-            Building modern, reliable web applications using React and Next.js.
+            Building modern, reliable web applications using React and NextJS.
             Sharing projects, development learnings, and frontend engineering
             insights through this portfolio.
           </Paragraph>

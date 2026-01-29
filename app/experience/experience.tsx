@@ -5,14 +5,11 @@ import { Briefcase, Calendar, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { EXPERIENCE } from "@/helper/data/ExperienceData";
 import Pills from "@/components/ui/Pills";
-import BackButton from "@/components/ui/BackButton";
 
 const Experience = () => {
   return (
     <Container cn="items-start">
       <section className="flex flex-col gap-10 w-full">
-        <BackButton url="/" title="Back" label="Link to go back to home page" />
-
         <Heading
           tag="h2"
           cn="text-sm uppercase tracking-widest text-neutral-400"
