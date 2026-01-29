@@ -91,7 +91,7 @@ const ExperienceSection = () => {
             {/* Actions */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
-                href="https://bitsndbricks.com"
+                href="https://demo-synctech.aptagrim.co/auth/signin"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="View BitsndBricks live project"
