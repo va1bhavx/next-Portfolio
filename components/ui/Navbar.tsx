@@ -1,37 +1,16 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Heading from "./Heading";
 import Paragraph from "./Paragraph";
 import Link from "next/link";
-import { Github, Linkedin, Menu, Twitter, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 const LINKS = [
   { id: 1, name: "Home", url: "/" },
   { id: 2, name: "Projects", url: "/projects" },
   { id: 3, name: "Experience", url: "/experience" },
-];
-
-const SOCIALS = [
-  {
-    id: 1,
-    name: "Twitter (X)",
-    url: "https://twitter.com/va1bhavx",
-    icon: <Twitter size={20} />,
-  },
-  {
-    id: 2,
-    name: "LinkedIn",
-    url: "https://www.linkedin.com/in/va1bhavx",
-    icon: <Linkedin size={20} />,
-  },
-  {
-    id: 3,
-    name: "GitHub",
-    url: "https://github.com/va1bhavx",
-    icon: <Github size={20} />,
-  },
 ];
 
 const Navbar = () => {
@@ -99,19 +78,7 @@ const Navbar = () => {
         </button>
 
         {/* Social Links */}
-        <div className="flex items-center gap-4">
-          {SOCIALS.map((social) => (
-            <Link
-              key={social.id}
-              href={social.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Vaibhav Kumar on ${social.name}`}
-            >
-              {social.icon}
-            </Link>
-          ))}
-        </div>
+        {/* <SocialComponent /> */}
       </div>
 
       {/* Mobile Menu */}

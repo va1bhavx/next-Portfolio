@@ -11,6 +11,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   cn?: string;
   variant?: "primary" | "ghost" | "outline";
   size?: "sm" | "md" | "lg" | "xl";
+  onClick?: () => void;
 }
 
 interface VARIANT_STYLE_VALUE {
@@ -50,6 +51,7 @@ const Button: React.FC<ButtonProps> = ({
   cn,
   variant = "primary",
   size = "sm",
+  onClick,
   ...rest
 }) => {
   const variantClass = VARIANT_STYLE[variant];
@@ -64,6 +66,7 @@ const Button: React.FC<ButtonProps> = ({
         ${variantClass} ${sizeClass} ${cn}
         ${isLoading || disabled ? "opacity-60 cursor-not-allowed" : ""}
       `}
+      onClick={onClick}
     >
       {isLoading ? (
         <span className="animate-spin">

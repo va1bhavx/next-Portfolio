@@ -1,66 +1,44 @@
 import React from "react";
 import Paragraph from "../ui/Paragraph";
 import Heading from "../ui/Heading";
-import { Github, Linkedin, Twitter } from "lucide-react";
+import SocialComponent from "../ui/SocialComponent";
 
 const Footer = () => {
   return (
-    <footer className=" mt-12  md:max-w-4xl w-full mx-auto">
-      <div className="max-w-6xl mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-800">
-        {/* Left Column - Newspaper style issue info */}
-        <div className="text-sm flex flex-col gap-2">
-          <Heading tag="h1" cn="title text-2xl md:text-4xl">
-            Developer Times
+    <footer className="mt-4 sm:mt-16 max-w-4xl mx-auto">
+      <div className=" px-6 sm:px-0 py-5 flex flex-col gap-8 text-neutral-400">
+        {/* Identity */}
+        <div className="flex flex-col gap-2">
+          <Heading tag="h2" cn="text-neutral-200 text-lg font-medium">
+            Vaibhav Kumar — Software Engineer
           </Heading>
 
-          <Paragraph cn="italic text-xs mt-1">
-            Edition {new Date().getFullYear()} • Published by Vaibhav Kumar
-          </Paragraph>
-          <Paragraph cn="text-xs text-gray-600  text-balance">
-            All articles & projects are personally hand-crafted with Next, & ☕.
+          <Paragraph cn="text-sm leading-relaxed max-w-xl">
+            Building modern, reliable web applications using React and Next.js.
+            Sharing projects, development learnings, and frontend engineering
+            insights through this portfolio.
           </Paragraph>
         </div>
 
-        {/* Right Column - Social & Signature */}
-        <div className="text-sm flex flex-col items-start md:items-end gap-3">
-          <div className="flex gap-4 text-lg">
-            <a
-              href="https://github.com/PrgVaibhav"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-black"
-              aria-label="View Vaibhav Kumar's Github account"
-            >
-              <Github />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/devxvaibhav"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-black"
-              aria-label="View Vaibhav Kumar's LinkedIn account"
-            >
-              <Linkedin />
-            </a>
-            <a
-              href="https://twitter.com/SyntaxError408"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-black"
-              aria-label="View Vaibhav Kumar's Twitter account"
-            >
-              <Twitter />
-            </a>
-          </div>
-          <p className="italic text-xs text-gray-600">
-            “Printed with passion & pixels”
+        {/* Social links */}
+        <div className="flex flex-col gap-3">
+          <Paragraph cn="text-xs uppercase tracking-widest text-neutral-500">
+            Connect
+          </Paragraph>
+          <SocialComponent />
+        </div>
+
+        {/* Bottom strip */}
+        <div className="flex flex-col md:flex-row md:justify-between gap-2 text-xs text-neutral-500 pt-6 border-t border-neutral-800">
+          <p>
+            © {new Date().getFullYear()} Vaibhav Kumar. All rights reserved.
+          </p>
+
+          <p>
+            Also known online as{" "}
+            <span className="text-neutral-400">va1bhavx</span>.
           </p>
         </div>
-      </div>
-
-      {/* Bottom Strip */}
-      <div className="border-t border-black text-center text-xs py-2 tracking-widest uppercase ">
-        © {new Date().getFullYear()} Vaibhav Kumar
       </div>
     </footer>
   );

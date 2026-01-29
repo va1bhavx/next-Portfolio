@@ -5,29 +5,48 @@ interface PillsProps {
   cn?: string;
   children: React.ReactNode;
   label?: string;
-  status: "info" | "success" | "warning";
+  status?: "info" | "success" | "warning";
 }
 
 const statusClass = {
-  info: `bg-linear-to-r from-gray-200 to-gray-100 text-neutral-800 ring ring-gray-200`,
-  success: `text-green-700 bg-gradient-to-r from-green-100 to-emerald-100 ring ring-green-700`,
-  warning: `text-red-700 bg-gradient-to-r from-red-50 to-red-100 ring ring-red-700`,
+  info: `
+    bg-neutral-800
+    text-neutral-300
+    border border-neutral-700
+  `,
+  success: `
+    bg-green-900/30
+    text-green-400
+    border border-green-800
+  `,
+  warning: `
+    bg-red-900/30
+    text-red-400
+    border border-red-800
+  `,
 };
 
 const Pills: React.FC<PillsProps> = ({
   children,
-  cn,
+  cn = "",
   label,
   status = "info",
 }) => {
   return (
-    <div aria-label={label}>
+    <span aria-label={label}>
       <Paragraph
-        cn={`px-2 py-1 text-xs rounded-lg body ${statusClass[status]} ${cn}`}
+        cn={`
+          px-2.5 py-1
+          text-xs
+          rounded-md
+          leading-none
+          ${statusClass[status]}
+          ${cn}
+        `}
       >
         {children}
       </Paragraph>
-    </div>
+    </span>
   );
 };
 

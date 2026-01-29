@@ -2,54 +2,60 @@ export const EXPERIENCE = [
   {
     id: Math.floor(Math.random() * 9999),
     company: "Aptagrim Limited",
-    role: "NextJS Developer",
+    role: "Next.js Developer",
     duration: "Oct 2025 – Present",
     description:
-      "At BusyBrains, I contributed to the development of a comprehensive real estate platform that serves multiple types of users including agents, clients, and administrators. My focus was on creating dynamic, responsive, and efficient user interfaces while integrating robust state management and data handling.",
+      "Since joining Aptagrim in October 2025, I have been working closely with the team on SIGMA, a loan recovery and operations platform used for managing field agents, customers, and recovery workflows. My role focuses on building scalable dashboard interfaces, integrating real-time features, and developing tools that improve operational efficiency for internal teams. Alongside SIGMA, I have gradually started contributing to additional internal and client-facing projects.",
+
     tech: [
-      "NextJS",
+      "Next.js",
       "TypeScript",
-      "Zod",
       "Redux",
       "TailwindCSS",
-      "MantineUI",
+      "Mantine UI",
+      "TanStack Query",
       "Axios",
-      "Tanstack Query",
+      "WebSockets",
       "REST APIs",
-    ],
-    slug: "/busybrains",
-    achievements: [
-      "Designed and implemented a multi-role authentication system ensuring secure access control across agents, clients, and admins.",
-      "Developed dynamic dashboards with role-specific views, providing meaningful data insights for each user type.",
-      "Optimized API calls and data fetching, and improving overall platform performance.",
-      "Worked on multiple design templates, including e-commerce platforms, saree selling websites, dashboards, and admin panels.",
-      "Collaborated with UI/UX designers to translate wireframes into responsive, interactive interfaces.",
-      "Implemented reusable React components and state management solutions to streamline development across projects.",
-      "Integrated third-party APIs for payments, notifications, and analytics to enhance platform functionality.",
-      "Ensured cross-browser compatibility and responsiveness for seamless user experience across devices.",
+      "Zod",
     ],
 
+    slug: "/aptagrim",
+
     responsibilities: [
-      "Led the frontend development of the platform using NextJS, integrating multiple modules and reusable components.",
-      "Implemented Context API for scalable state management, handling complex data across multiple user roles.",
-      "Worked closely with backend developers to consume and validate REST APIs, ensuring data consistency and integrity.",
-      "Conducted code reviews and optimized component performance, maintaining a high-quality codebase.",
+      "Developing and maintaining dashboard screens and operational panels for the SIGMA loan recovery platform.",
+      "Implementing user management workflows including role handling and access control.",
+      "Integrating real-time notifications and updates to support operational decision making.",
+      "Collaborating with backend and product teams to deliver scalable and reliable UI solutions.",
+      "Contributing reusable components and improving frontend architecture for future scalability.",
     ],
+
+    achievements: [
+      "Built multiple dashboard and reporting screens used daily by recovery teams.",
+      "Implemented real-time notification flows improving response and coordination speed.",
+      "Integrated video call features enabling remote communication between teams and users.",
+      "Implemented map-based tracking and real-world location integrations for field operations.",
+      "Improved performance and responsiveness of complex data-heavy interfaces.",
+      "Gradually expanded contributions to additional company projects beyond SIGMA.",
+    ],
+
     challenges: [
-      "Handling complex multi-role permissions while ensuring a seamless user experience.",
-      "Building dynamic dashboards that update in real-time with minimal performance overhead.",
-      "Integrating various APIs with inconsistent data structures without breaking UI components.",
+      "Managing large real-time datasets without degrading UI performance.",
+      "Handling complex operational workflows while keeping interfaces simple for users.",
+      "Integrating multiple external services with different data formats and reliability constraints.",
     ],
+
     learned: [
-      "Mastered advanced NextJS features such as SSR, SSG, and incremental static regeneration for high-performance pages.",
-      "Improved expertise in managing complex React state with multiple Context providers.",
-      "Gained experience in designing highly reusable and maintainable frontend components.",
-      "Enhanced understanding of UX design principles for multi-role applications.",
+      "Improved ability to build scalable dashboard systems with real-world operational impact.",
+      "Gained deeper experience with real-time UI updates and live operational data handling.",
+      "Strengthened collaboration skills across product, backend, and operations teams.",
+      "Learned to design interfaces optimized for daily enterprise workflow usage.",
     ],
+
     notableProjects: [
       {
-        name: "BitsndBricks Platform",
-        link: "https://bitsndbricks.com",
+        link: "https://demo-synctech.aptagrim.co/auth/signin",
+        name: "SIGMA",
       },
     ],
   },

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
+import Paragraph from "./Paragraph";
 
 const randomTexts = [
   "Crafting beautiful user experiences…",
@@ -14,7 +14,7 @@ const randomTexts = [
 ];
 
 interface LoadingScreenProps {
-  imageSrc: string; // URL or import of your image/logo
+  imageSrc?: string;
   alt?: string;
 }
 
@@ -23,30 +23,40 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({
   alt = "Loading",
 }) => {
   const [text, setText] = useState(randomTexts[0]);
+  const [fade, setFade] = useState(true);
 
-  // Change text every 3 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      const randomIndex = Math.floor(Math.random() * randomTexts.length);
-      setText(randomTexts[randomIndex]);
+      setFade(false);
+
+      setTimeout(() => {
+        const randomIndex = Math.floor(Math.random() * randomTexts.length);
+        setText(randomTexts[randomIndex]);
+        setFade(true);
+      }, 300);
     }, 3000);
+
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center  z-50">
-      {/* Image */}
-      <div className="mb-6 ">
-        <Image src={imageSrc} alt={alt} width={120} height={120} className="" />
+    <div className="fixed inset-0 flex flex-col items-center justify-center bg-neutral-950 z-50 px-6">
+      <div className="relative mb-8">
+        <div className="w-12 h-12 border-2 border-neutral-700 rounded-full"></div>
+        <div className="absolute inset-0 w-12 h-12 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
       </div>
 
-      {/* Loader */}
-      <div className="w-12 h-12 border-4 border-gray-300 border-t-black rounded-full animate-spin mb-6"></div>
-
-      {/* Random Text */}
-      <p className="text-center text-gray-700 text-sm sm:text-base px-4 max-w-xs">
+      <Paragraph
+        cn={`text-center text-neutral-400 text-sm sm:text-base max-w-sm leading-relaxed transition-opacity duration-300 ${
+          fade ? "opacity-100" : "opacity-0"
+        }`}
+      >
         {text}
-      </p>
+      </Paragraph>
+
+      <span className="text-neutral-600 text-xs mt-6 tracking-wide">
+        Loading experience…
+      </span>
     </div>
   );
 };
