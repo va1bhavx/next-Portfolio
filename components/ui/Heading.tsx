@@ -16,7 +16,7 @@ const Heading: React.FC<HeadingProps> = ({
   const Tag = tag;
 
   return (
-    <Tag className={`${cn && cn}  leading-none `} aria-label={label}>
+    <Tag className={`${cn && cn}  leading-none header`} aria-label={label}>
       {children}
     </Tag>
   );

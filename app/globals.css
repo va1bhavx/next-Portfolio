@@ -1,21 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --primary: #ebebeb;
-  --foreground: #171717;
+  --primary: #111010;
+  --foreground: #ebebeb;
   --font-header: var(--font-roboto);
   --font-body: var(--font-inter);
-  --font-title: var(--font-fleur);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: var(--font-primary);
   color: var(--foreground);
   background-color: var(--primary);
 }
 
 .title {
-  font-family: var(--font-title);
+  font-family: var(--font-header);
 }
 
 .header {

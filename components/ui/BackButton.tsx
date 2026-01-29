@@ -14,7 +14,7 @@ const BackButton = ({
     <div className="mb-4 max-w-6xl mx-auto w-full">
       <Link
         href={url}
-        className="inline-flex items-center gap-2 px-3 py-2  transition-all text-gray-700 body"
+        className="inline-flex items-center gap-2   transition-all text-neutral-300 body"
         aria-label={label}
       >
         <ArrowLeft className="w-4 h-4" />

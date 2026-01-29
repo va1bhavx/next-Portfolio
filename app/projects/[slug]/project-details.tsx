@@ -3,226 +3,145 @@
 import BackButton from "@/components/ui/BackButton";
 import Container from "@/components/ui/Container";
 import Heading from "@/components/ui/Heading";
-import { ImageCarousel } from "@/components/ui/ImageCarousel";
 import Paragraph from "@/components/ui/Paragraph";
+import { ImageCarousel } from "@/components/ui/ImageCarousel";
 import { ProjectData, PROJECTS } from "@/helper/data/ProjectData";
-import { ChevronLeft, Github, Link2 } from "lucide-react";
+import { Github, Link2 } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import { FaTools, FaUserTie, FaFlagCheckered } from "react-icons/fa";
 
-interface ProjectDetailsProps {
-  slug?: string;
-}
-
-const SoftCard = ({ children }: { children: React.ReactNode }) => (
-  <div className="bg-neutral-50 border border-neutral-200 rounded-xl p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] hover:shadow-[0_2px_6px_rgba(0,0,0,0.07)] transition-all">
-    {children}
-  </div>
-);
-
-const SectionBlock = ({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) => (
-  <section className="mb-12 pb-10 border-b border-neutral-200">
-    <Heading tag="h2" cn="text-2xl font-semibold mb-4 text-neutral-900 header">
-      {title}
-    </Heading>
-    <div className="prose prose-neutral max-w-none body">{children}</div>
-  </section>
-);
-
-const ProjectDetails: React.FC<ProjectDetailsProps> = ({ slug }) => {
+const ProjectDetails = () => {
   const params = useParams();
   const router = useRouter();
-  const [projectToShow, setProjectToShow] = useState<ProjectData | undefined>(
-    undefined
-  );
+  const [project, setProject] = useState<ProjectData | undefined>();
 
   useEffect(() => {
     if (params.slug) {
-      const project =
-        PROJECTS.find((prj) => prj.slug.split("/").pop() === params.slug) ||
-        null;
-      if (!project) router.push("/projects");
-      else setProjectToShow(project);
+      const found =
+        PROJECTS.find((p) => p.slug.split("/").pop() === params.slug) || null;
+
+      if (!found) router.push("/projects");
+      else setProject(found);
     }
   }, [params.slug, router]);
 
-  if (!projectToShow)
-    return <p className="text-center mt-10 body">Loading...</p>;
+  if (!project) return null;
 
   return (
-    <Container cn="items-start mx-auto pb-20">
-      {/* Back button */}
-      <BackButton
-        url="/projects"
-        title="Back to Projects"
-        label="Link to go back to projects page"
-      />
+    <Container cn="items-start pb-24">
+      <article className=" w-full flex flex-col gap-12">
+        <BackButton
+          url="/projects"
+          title="Back to Projects"
+          label="Back to projects"
+        />
 
-      <article className="w-full">
-        {/* Cover Image */}
-        {projectToShow.cover && (
-          <div className="mb-12 rounded-2xl overflow-hidden border border-neutral-300 shadow-sm">
+        {/* Hero */}
+        {project.cover && (
+          <div className="max-w-4xl mx-auto w-full overflow-hidden rounded-xl border border-neutral-800">
             <Image
-              src={projectToShow.cover}
-              alt={projectToShow.title}
+              src={project.cover}
+              alt={project.title}
               width={1400}
-              height={500}
-              className="object-cover w-full h-[350px]"
+              height={600}
+              className="w-full h-[260px] md:h-80 object-cover"
               priority
             />
           </div>
         )}
 
         {/* Title */}
-        <header className="text-center mb-10">
-          <Heading
-            tag="h1"
-            cn="text-4xl md:text-5xl font-bold text-neutral-900 header"
-          >
-            {projectToShow.title}
+        <header className="flex flex-col gap-4">
+          <Heading tag="h1" cn="text-4xl md:text-5xl text-neutral-100">
+            {project.title}
           </Heading>
+
+          {project.description && (
+            <Paragraph cn="text-lg text-neutral-400 leading-relaxed">
+              {project.description}
+            </Paragraph>
+          )}
         </header>
 
-        {/* Description */}
-        {projectToShow.description && (
-          <section className="mb-14 max-w-3xl mx-auto text-center">
-            <Paragraph cn="text-lg text-neutral-700 leading-relaxed body">
-              {projectToShow.description}
-            </Paragraph>
+        {/* Content */}
+        {project.features?.length > 0 && (
+          <section className="flex flex-col gap-4">
+            <Heading tag="h2" cn="text-2xl text-neutral-200">
+              What was built
+            </Heading>
+
+            <ul className="list-disc pl-6 space-y-2 text-neutral-400">
+              {project.features.map((f, i) => (
+                <li key={i}>{f}</li>
+              ))}
+            </ul>
           </section>
         )}
 
-        {/* Info Cards */}
-        <section className="grid md:grid-cols-3 gap-6 mb-16">
-          {projectToShow.techStack && (
-            <SoftCard>
-              <div className="flex items-center gap-2 mb-3">
-                <FaTools className="text-neutral-700" />
-                <h2 className="font-semibold text-neutral-900 header">
-                  Tech Stack
-                </h2>
-              </div>
-              <div className="flex flex-wrap gap-2 body">
-                {projectToShow.techStack.map((tech, idx) => (
-                  <span
-                    key={idx}
-                    className="px-2 py-1 rounded-md text-xs font-medium bg-neutral-100 border border-neutral-300 text-neutral-800"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </SoftCard>
-          )}
+        {project.challenges?.length > 0 && (
+          <section className="flex flex-col gap-4">
+            <Heading tag="h2" cn="text-2xl text-neutral-200">
+              Challenges
+            </Heading>
 
-          {projectToShow.role && (
-            <SoftCard>
-              <div className="flex items-center gap-2 mb-3">
-                <FaUserTie className="text-neutral-700" />
-                <h2 className="font-semibold text-neutral-900 header">Role</h2>
-              </div>
-              <Paragraph cn="text-neutral-700 text-sm leading-relaxed body">
-                {projectToShow.role}
-              </Paragraph>
-            </SoftCard>
-          )}
-
-          {projectToShow.status && (
-            <SoftCard>
-              <div className="flex items-center gap-2 mb-3">
-                <FaFlagCheckered className="text-neutral-700" />
-                <h2 className="font-semibold text-neutral-900 header">
-                  Status
-                </h2>
-              </div>
-              <Paragraph cn="text-neutral-700 text-sm leading-relaxed body">
-                {projectToShow.status}
-              </Paragraph>
-            </SoftCard>
-          )}
-        </section>
-
-        {/* Features */}
-        {projectToShow.features?.length > 0 && (
-          <SectionBlock title="Key Features">
-            <ul className="list-disc pl-6 space-y-2 text-neutral-700 body">
-              {projectToShow.features.map((feature, idx) => (
-                <li key={idx}>{feature}</li>
+            <ul className="list-disc pl-6 space-y-2 text-neutral-400">
+              {project.challenges.map((c, i) => (
+                <li key={i}>{c}</li>
               ))}
             </ul>
-          </SectionBlock>
+          </section>
         )}
 
-        {/* Challenges */}
-        {projectToShow.challenges?.length > 0 && (
-          <SectionBlock title="Challenges">
-            <ul className="list-disc pl-6 space-y-2 text-neutral-700 body">
-              {projectToShow.challenges.map((challenge, idx) => (
-                <li key={idx}>{challenge}</li>
-              ))}
-            </ul>
-          </SectionBlock>
-        )}
+        {project.outcomes?.length > 0 && (
+          <section className="flex flex-col gap-4">
+            <Heading tag="h2" cn="text-2xl text-neutral-200">
+              Outcomes
+            </Heading>
 
-        {/* Outcomes */}
-        {projectToShow.outcomes?.length > 0 && (
-          <SectionBlock title="Outcomes">
-            <ul className="list-disc pl-6 space-y-2 text-neutral-700 body">
-              {projectToShow.outcomes.map((outcome, idx) => (
-                <li key={idx}>{outcome}</li>
+            <ul className="list-disc pl-6 space-y-2 text-neutral-400">
+              {project.outcomes.map((o, i) => (
+                <li key={i}>{o}</li>
               ))}
             </ul>
-          </SectionBlock>
+          </section>
         )}
 
         {/* Gallery */}
-        {projectToShow.images?.length > 0 && (
-          <section className="mb-16">
-            <Heading
-              tag="h2"
-              cn="text-2xl font-semibold text-neutral-900 mb-4 header"
-            >
-              Project Gallery
+        {project.images?.length > 0 && (
+          <section className="flex flex-col gap-4">
+            <Heading tag="h2" cn="text-2xl text-neutral-200">
+              Screenshots
             </Heading>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              <ImageCarousel images={projectToShow.images} />
-            </div>
+            <ImageCarousel images={project.images} />
           </section>
         )}
 
         {/* Links */}
-        {(projectToShow.github || projectToShow.liveDemo) && (
-          <section className="flex flex-wrap gap-4 mt-12">
-            {projectToShow.github && (
+        {(project.github || project.liveDemo) && (
+          <section className="flex gap-4 flex-wrap pt-6 border-t border-neutral-800">
+            {project.github && (
               <a
-                href={projectToShow.github}
+                href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 bg-neutral-900 text-white rounded-md text-sm font-medium hover:bg-neutral-800 transition flex items-center gap-2 body"
+                className="flex items-center gap-2 text-neutral-300 hover:text-white"
               >
                 <Github size={18} />
-                View on GitHub
+                Source Code
               </a>
             )}
 
-            {projectToShow.liveDemo && (
+            {project.liveDemo && (
               <a
-                href={projectToShow.liveDemo}
+                href={project.liveDemo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 bg-neutral-900 text-white rounded-md text-sm font-medium hover:bg-neutral-800 transition flex items-center gap-2 body"
+                className="flex items-center gap-2 text-neutral-300 hover:text-white"
               >
-                Live Demo <Link2 size={18} />
+                <Link2 size={18} />
+                Live Demo
               </a>
             )}
           </section>

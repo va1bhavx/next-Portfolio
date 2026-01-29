@@ -1,9 +1,70 @@
 export const EXPERIENCE = [
   {
-    id: 2,
+    id: Math.floor(Math.random() * 9999),
+    company: "Aptagrim Limited",
+    role: "Next.js Developer",
+    duration: "Oct 2025 – Present",
+    description:
+      "Since joining Aptagrim in October 2025, I have been working closely with the team on SIGMA, a loan recovery and operations platform used for managing field agents, customers, and recovery workflows. My role focuses on building scalable dashboard interfaces, integrating real-time features, and developing tools that improve operational efficiency for internal teams. Alongside SIGMA, I have gradually started contributing to additional internal and client-facing projects.",
+
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Redux",
+      "TailwindCSS",
+      "Mantine UI",
+      "TanStack Query",
+      "Axios",
+      "WebSockets",
+      "REST APIs",
+      "Zod",
+    ],
+
+    slug: "/aptagrim",
+
+    responsibilities: [
+      "Developing and maintaining dashboard screens and operational panels for the SIGMA loan recovery platform.",
+      "Implementing user management workflows including role handling and access control.",
+      "Integrating real-time notifications and updates to support operational decision making.",
+      "Collaborating with backend and product teams to deliver scalable and reliable UI solutions.",
+      "Contributing reusable components and improving frontend architecture for future scalability.",
+    ],
+
+    achievements: [
+      "Built multiple dashboard and reporting screens used daily by recovery teams.",
+      "Implemented real-time notification flows improving response and coordination speed.",
+      "Integrated video call features enabling remote communication between teams and users.",
+      "Implemented map-based tracking and real-world location integrations for field operations.",
+      "Improved performance and responsiveness of complex data-heavy interfaces.",
+      "Gradually expanded contributions to additional company projects beyond SIGMA.",
+    ],
+
+    challenges: [
+      "Managing large real-time datasets without degrading UI performance.",
+      "Handling complex operational workflows while keeping interfaces simple for users.",
+      "Integrating multiple external services with different data formats and reliability constraints.",
+    ],
+
+    learned: [
+      "Improved ability to build scalable dashboard systems with real-world operational impact.",
+      "Gained deeper experience with real-time UI updates and live operational data handling.",
+      "Strengthened collaboration skills across product, backend, and operations teams.",
+      "Learned to design interfaces optimized for daily enterprise workflow usage.",
+    ],
+
+    notableProjects: [
+      {
+        link: "https://demo-synctech.aptagrim.co/auth/signin",
+        name: "SIGMA",
+      },
+    ],
+  },
+  {
+    id: Math.floor(Math.random() * 9999),
+
     company: "BusyBrains",
     role: "Associate React Developer",
-    duration: "Apr 2025 – Present",
+    duration: "Apr 2025 – Sept 2025",
     description:
       "At BusyBrains, I contributed to the development of a comprehensive real estate platform that serves multiple types of users including agents, clients, and administrators. My focus was on creating dynamic, responsive, and efficient user interfaces while integrating robust state management and data handling.",
     tech: [
@@ -53,7 +114,8 @@ export const EXPERIENCE = [
     ],
   },
   {
-    id: 1,
+    id: Math.floor(Math.random() * 9999),
+
     company: "PetEye",
     role: "ReactJS Developer",
     duration: "May 2024 – Feb 2025",
@@ -99,7 +161,8 @@ export const EXPERIENCE = [
     notableProjects: [{ name: "PetEye Dashboard", link: "https://peteye.pet" }],
   },
   {
-    id: 3,
+    id: Math.floor(Math.random() * 9999),
+
     company: "Freelance + Internships",
     role: "Frontend Developer",
     duration: "May 2023 – Apr 2024",

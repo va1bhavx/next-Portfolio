@@ -11,6 +11,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   cn?: string;
   variant?: "primary" | "ghost" | "outline";
   size?: "sm" | "md" | "lg" | "xl";
+  onClick?: () => void;
 }
 
 interface VARIANT_STYLE_VALUE {
@@ -30,7 +31,7 @@ const VARIANT_STYLE: VARIANT_STYLE_VALUE = {
   primary:
     "bg-gradient-to-r from-gray-800  to-gray-900 text-white hover:bg-black",
   outline: "bg-transparent text-gray-600 hover:bg-zinc-100 ring ring-gray-200",
-  ghost: "bg-transparent text-gray-600 hover:bg-gray-100",
+  ghost: "bg-transparent text-neutral-300 hover:bg-neutral-700",
 };
 
 const SIZE_STYLE: SIZE_STYLE_VALUE = {
@@ -50,6 +51,7 @@ const Button: React.FC<ButtonProps> = ({
   cn,
   variant = "primary",
   size = "sm",
+  onClick,
   ...rest
 }) => {
   const variantClass = VARIANT_STYLE[variant];
@@ -60,10 +62,11 @@ const Button: React.FC<ButtonProps> = ({
       aria-label={label || "button element"}
       className={`
         inline-flex items-center justify-center gap-2 
-        font-medium transition-all duration-200 ease-in-out cursor-pointer active:scale-90 font-open
+        font-medium transition-all duration-200 ease-in-out rounded-lg cursor-pointer active:scale-90 font-open
         ${variantClass} ${sizeClass} ${cn}
         ${isLoading || disabled ? "opacity-60 cursor-not-allowed" : ""}
       `}
+      onClick={onClick}
     >
       {isLoading ? (
         <span className="animate-spin">

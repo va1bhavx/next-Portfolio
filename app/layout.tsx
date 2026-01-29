@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import RootLayoutClient from "./RootLayoutClient";
+import ScrollToTop from "@/components/web/ScrollToTop";
 
-// ✅ Import optimized Google Fonts
-import { Inter, Roboto, Fleur_De_Leah } from "next/font/google";
+import { Inter, Roboto } from "next/font/google";
 
-// Example: configure fonts
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -19,41 +18,44 @@ const roboto = Roboto({
   display: "swap",
 });
 
-const fleur = Fleur_De_Leah({
-  subsets: ["latin"],
-  variable: "--font-fleur",
-  display: "swap",
-  weight: "400",
-});
-
-// ✅ Metadata
 export const metadata: Metadata = {
-  title: "Vaibhav Kumar | ReactJS Developer",
+  title: "Vaibhav Kumar – React & Next.js Developer Portfolio",
   description:
-    "Vaibhav Kumar is a ReactJS developer passionate about building innovative, scalable, and user friendly web applications. Focused on delivering clean, efficient, and modern front-end experiences.",
+    "Vaibhav Kumar is a React and Next.js developer building scalable, modern, and user-friendly web applications focused on performance and clean frontend architecture.",
+
   keywords: [
     "Vaibhav Kumar",
-    "ReactJS Developer",
+    "Vaibhav Kumar Developer",
+    "React Developer India",
+    "Next.js Developer",
     "Frontend Developer",
-    "JavaScript",
-    "Next.js",
-    "Web Developer",
+    "React Next.js Portfolio",
+    "JavaScript Developer",
+    "Full Stack Developer",
+    "MERN Developer",
     "Frontend Engineer",
   ],
+
   authors: [{ name: "Vaibhav Kumar" }],
   creator: "Vaibhav Kumar",
   publisher: "Vaibhav Kumar",
-  applicationName: "Portfolio - Vaibhav Kumar",
+  applicationName: "Vaibhav Kumar Portfolio",
+
+  metadataBase: new URL("https://kumarvaibhav.xyz"),
+
+  alternates: {
+    canonical: "https://kumarvaibhav.xyz",
+  },
 
   openGraph: {
-    title: "Vaibhav Kumar | ReactJS Developer",
+    title: "Vaibhav Kumar – React & Next.js Developer",
     description:
-      "ReactJS Developer with experience building modern, high-performance, and user-focused applications. Passionate about creating seamless front-end experiences.",
+      "Portfolio of Vaibhav Kumar showcasing modern web applications, frontend engineering, and production-grade projects.",
     url: "https://kumarvaibhav.xyz",
     siteName: "Vaibhav Kumar Portfolio",
     images: [
       {
-        url: "/banner.png",
+        url: "https://kumarvaibhav.xyz/banner.png",
         width: 1200,
         height: 630,
         alt: "Vaibhav Kumar Portfolio",
@@ -63,14 +65,13 @@ export const metadata: Metadata = {
     type: "website",
   },
 
-  // ✅ Twitter card
   twitter: {
     card: "summary_large_image",
-    title: "Vaibhav Kumar | ReactJS Developer",
+    title: "Vaibhav Kumar – React & Next.js Developer",
     description:
-      "React.js Developer with experience building modern, high-performance, and user-focused applications.",
-    creator: "@SyntaxError408",
-    images: ["/banner.png"],
+      "Frontend developer building scalable React & Next.js applications.",
+    creator: "@va1bhavx",
+    images: ["https://kumarvaibhav.xyz/banner.png"],
   },
 
   icons: {
@@ -78,7 +79,7 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
     apple: "/favicon.ico",
   },
-  metadataBase: new URL("https://kumarvaibhav.xyz"),
+
   robots: {
     index: true,
     follow: true,
@@ -89,19 +90,43 @@ export const metadata: Metadata = {
   },
 };
 
-// ✅ Root layout with fonts applied
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${roboto.variable} ${fleur.variable}`}
-    >
+    <html lang="en" className={`${inter.variable} ${roboto.variable}`}>
       <body>
-        <RootLayoutClient>{children}</RootLayoutClient>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Vaibhav Kumar",
+              url: "https://kumarvaibhav.xyz",
+              sameAs: [
+                "https://github.com/va1bhavx",
+                "https://twitter.com/va1bhavx",
+                "https://www.linkedin.com/in/va1bhavx",
+                "https://medium.com/@va1bhavx",
+                "https://va1bhavx.hashnode.dev",
+                "https://dev.to/va1bhavx",
+              ],
+              jobTitle: "Software Engineer",
+              worksFor: {
+                "@type": "Organization",
+                name: "Aptagrim Limited",
+              },
+            }),
+          }}
+        />
+
+        <RootLayoutClient>
+          <ScrollToTop />
+          {children}
+        </RootLayoutClient>
       </body>
     </html>
   );
