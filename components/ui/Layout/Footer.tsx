@@ -1,7 +1,7 @@
 import React from "react";
-import Paragraph from "../ui/Paragraph";
-import Heading from "../ui/Heading";
-import SocialComponent from "../ui/SocialComponent";
+import Paragraph from "../Paragraph";
+import Heading from "../Heading";
+import SocialComponent from "../SocialComponent";
 
 const Footer = () => {
   return (

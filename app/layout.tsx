@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import RootLayoutClient from "./RootLayoutClient";
-import ScrollToTop from "@/components/web/ScrollToTop";
+import ScrollToTop from "@/components/web/Home/ScrollToTop";
 
 import { Inter, Roboto } from "next/font/google";
 

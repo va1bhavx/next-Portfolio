@@ -1,7 +1,7 @@
-import Container from "../ui/Container";
-import Heading from "../ui/Heading";
-import Paragraph from "../ui/Paragraph";
-import Button from "../ui/Button";
+import Button from "@/components/ui/Button";
+import Container from "@/components/ui/Container";
+import Heading from "@/components/ui/Heading";
+import Paragraph from "@/components/ui/Paragraph";
 import { Scroll } from "lucide-react";
 import Link from "next/link";
 
