@@ -7,7 +7,7 @@ interface ParagraphProps {
 }
 
 const Paragraph: React.FC<ParagraphProps> = ({
-  cn = "text-gray-500 text-md",
+  cn = "text-neutral-300 text-md",
   label,
   children,
 }) => {

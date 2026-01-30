@@ -14,7 +14,7 @@ export default function RootLayoutClient({
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1500); // 1.5s loader
+    const timer = setTimeout(() => setLoading(false), 1500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -34,7 +34,7 @@ export default function RootLayoutClient({
         <header className=" md:max-w-4xl w-full mx-auto pt-2">
           <Navbar />
         </header>
-        <main className=" flex flex-col flex-auto basis-0 overflow-auto min-h-screen  ">
+        <main className=" flex flex-col flex-auto basis-0 overflow-auto  ">
           {children}
         </main>
 
