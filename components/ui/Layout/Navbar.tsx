@@ -6,6 +6,7 @@ import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import Heading from "../Heading";
 import Paragraph from "../Paragraph";
+import { getActiveEvent } from "@/helper/utils/getActiveEvent";
 
 const LINKS = [
   { id: 1, name: "Home", url: "/" },
@@ -18,6 +19,12 @@ const Navbar = () => {
   const [date, setDate] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  const DEFAULT_MESSAGE =
+    "👋 Welcome! Building clean, thoughtful web experiences.";
+
+  const event = getActiveEvent();
+  const greeting = event?.message ?? DEFAULT_MESSAGE;
 
   useEffect(() => {
     const today = new Date();
@@ -37,7 +44,7 @@ const Navbar = () => {
     >
       {/* Top Row */}
       <div className="flex items-end justify-between mt-4">
-        <Heading tag="h1" cn=" font-extrabold title text-xl md:text-4xl">
+        <Heading tag="h1" cn=" font-extrabold title text-2xl md:text-4xl">
           VK.
         </Heading>
 
@@ -57,17 +64,21 @@ const Navbar = () => {
                 : pathname.startsWith(link.url);
 
             return (
-              <li key={link.id}>
-                <Link
-                  href={link.url}
-                  className={`body hover:underline transition-all duration-300  ${
-                    isActive ? "font-bold text-neutral-300" : "text-neutral-500"
-                  }`}
-                  aria-label={`Navigate to ${link.name} page`}
-                >
-                  {link.name}
-                </Link>
-              </li>
+              <>
+                <li key={link.id}>
+                  <Link
+                    href={link.url}
+                    className={`body hover:underline transition-all duration-300  ${
+                      isActive
+                        ? "font-bold text-neutral-300"
+                        : "text-neutral-500"
+                    }`}
+                    aria-label={`Navigate to ${link.name} page`}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              </>
             );
           })}
         </ul>
@@ -80,6 +91,17 @@ const Navbar = () => {
         >
           {isMenuOpen ? <X /> : <Menu />}
         </button>
+        <Paragraph
+          cn="
+    block
+    text-xs text-neutral-400
+    max-w-xs truncate
+    opacity-80
+    animate-fadeIn
+  "
+        >
+          {greeting}
+        </Paragraph>
       </div>
 
       {/* Mobile Menu */}

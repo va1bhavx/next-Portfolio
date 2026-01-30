@@ -1,6 +1,20 @@
+"use client";
+import { useLogContext } from "@/context/LogContext";
 import { Search } from "lucide-react";
+import { useState } from "react";
 
 function LogsHeader() {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const { searchLogs } = useLogContext();
+
+  const handleSearch = (e) => {
+    const value = e.target.value;
+    setSearchQuery(value);
+
+    searchLogs(value);
+  };
+
   return (
     <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between w-full ">
       <div className="relative w-full md:max-w-md">
@@ -23,10 +37,12 @@ function LogsHeader() {
             focus:border-neutral-600
             rounded-lg
           "
+          onChange={(e) => handleSearch(e)}
+          value={searchQuery}
         />
       </div>
 
-      <div className="w-full md:w-auto">
+      {/* <div className="w-full md:w-auto">
         <select
           className="
             w-full md:w-56
@@ -47,7 +63,7 @@ function LogsHeader() {
           <option>Performance</option>
           <option>Career Logs</option>
         </select>
-      </div>
+      </div> */}
     </div>
   );
 }
