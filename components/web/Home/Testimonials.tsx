@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Container from "../ui/Container";
-import Heading from "../ui/Heading";
-import Paragraph from "../ui/Paragraph";
+import Container from "../../ui/Container";
+import Heading from "../../ui/Heading";
+import Paragraph from "../../ui/Paragraph";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import Button from "../ui/Button";
+import Button from "../../ui/Button";
 
 const TESTIMONIALS = [
   {

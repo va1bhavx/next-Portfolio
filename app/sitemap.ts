@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { PROJECTS } from "@/helper/data/ProjectData";
 import { EXPERIENCE } from "@/helper/data/ExperienceData";
+import { Logs } from "@/helper/data/LogData";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://kumarvaibhav.xyz";
@@ -33,5 +34,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
   }));
 
-  return [...staticRoutes, ...projectRoutes, ...experienceRoutes];
+  const logRoutes = Logs.map((exp) => ({
+    url: `${baseUrl}/logs/${exp.slug.split("/").pop()}`,
+    lastModified: new Date(),
+  }));
+
+  return [...staticRoutes, ...projectRoutes, ...experienceRoutes, ...logRoutes];
 }

@@ -1,10 +1,10 @@
-import Container from "../ui/Container";
-import Heading from "../ui/Heading";
-import Paragraph from "../ui/Paragraph";
-import Button from "../ui/Button";
+import Container from "../../ui/Container";
+import Heading from "../../ui/Heading";
+import Paragraph from "../../ui/Paragraph";
+import Button from "../../ui/Button";
 import Link from "next/link";
 import { BrainCircuit, ChevronRight, Link2 } from "lucide-react";
-import { ImageCarousel } from "../ui/ImageCarousel";
+import { ImageCarousel } from "../../ui/ImageCarousel";
 
 const IMAGES = [
   "/company/aptagrim/aptagrim_1.webp",

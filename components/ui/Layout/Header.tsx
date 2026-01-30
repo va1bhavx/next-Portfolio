@@ -1,6 +1,6 @@
 import React from "react";
-import Heading from "./Heading";
-import Paragraph from "./Paragraph";
+import Heading from "../Heading";
+import Paragraph from "../Paragraph";
 
 interface HeaderProps {
   heading: string;
