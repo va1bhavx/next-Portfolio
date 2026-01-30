@@ -1,16 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Heading from "./Heading";
-import Paragraph from "./Paragraph";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
+import Heading from "../Heading";
+import Paragraph from "../Paragraph";
 
 const LINKS = [
   { id: 1, name: "Home", url: "/" },
   { id: 2, name: "Projects", url: "/projects" },
   { id: 3, name: "Experience", url: "/experience" },
+  { id: 4, name: "Logs", url: "/logs" },
 ];
 
 const Navbar = () => {

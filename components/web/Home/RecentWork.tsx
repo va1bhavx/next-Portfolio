@@ -1,8 +1,8 @@
-import Container from "../ui/Container";
-import Heading from "../ui/Heading";
+import Container from "../../ui/Container";
+import Heading from "../../ui/Heading";
 import Link from "next/link";
 import { PROJECTS } from "@/helper/data/ProjectData";
-import ProjectCard from "../ui/ProjectCard";
+import ProjectCard from "../../ui/ProjectCard";
 
 const RecentWork = () => {
   return (

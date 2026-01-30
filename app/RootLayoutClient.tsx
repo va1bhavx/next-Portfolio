@@ -2,10 +2,9 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Navbar from "@/components/ui/Navbar";
-import Footer from "@/components/web/Footer";
+import Footer from "@/components/ui/Layout/Footer";
 import LoadingScreen from "@/components/ui/LoadingScreen";
-import Container from "@/components/ui/Container";
+import Navbar from "@/components/ui/Layout/Navbar";
 
 export default function RootLayoutClient({
   children,

@@ -1,6 +1,6 @@
-import Container from "../ui/Container";
-import Heading from "../ui/Heading";
-import Paragraph from "../ui/Paragraph";
+import Container from "../../ui/Container";
+import Heading from "../../ui/Heading";
+import Paragraph from "../../ui/Paragraph";
 import { Layout, Blocks, Plug, Gauge } from "lucide-react";
 
 const CAPABILITIES = [
