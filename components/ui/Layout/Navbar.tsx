@@ -92,6 +92,7 @@ const Navbar = () => {
           {isMenuOpen ? <X /> : <Menu />}
         </button>
         <Paragraph
+          key={Math.floor(Math.random() * 9999)}
           cn="
     block
     text-xs text-neutral-400
