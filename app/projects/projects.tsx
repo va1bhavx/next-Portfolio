@@ -8,8 +8,11 @@ const Projects = () => {
   return (
     <Container cn="items-start">
       <section className="flex flex-col gap-10 w-full">
-        <div className="flex flex-col gap-3 max-w-2xl">
-          <Heading tag="h1" cn="text-3xl text-neutral-200">
+        <div className="flex flex-col gap-3 ">
+          <Heading
+            tag="h2"
+            cn="text-2xl uppercase tracking-widest text-neutral-300"
+          >
             Projects
           </Heading>
 

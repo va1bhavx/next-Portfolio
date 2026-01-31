@@ -2,6 +2,7 @@ import React from "react";
 import ExperienceDetails from "./experience-details";
 import { Metadata } from "next";
 import { EXPERIENCE } from "@/helper/data/ExperienceData";
+import { getExperienceSchema } from "@/helper/seo/experienceSchema";
 
 export async function generateMetadata({
   params,
@@ -40,6 +41,13 @@ export async function generateMetadata({
     },
   };
 }
+
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify(getExperienceSchema(EXPERIENCE)),
+  }}
+/>;
 
 const page = () => {
   return <ExperienceDetails />;
