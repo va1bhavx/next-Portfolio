@@ -1,5 +1,6 @@
 import DetailedLog from "./DetailedLog";
 import { Logs } from "@/helper/data/LogData";
+import { getLogArticleSchema } from "@/helper/seo/logSchema";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -52,6 +53,13 @@ export async function generateMetadata({
     },
   };
 }
+
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify(getLogArticleSchema(Logs)),
+  }}
+/>;
 
 export default function Page() {
   return <DetailedLog />;

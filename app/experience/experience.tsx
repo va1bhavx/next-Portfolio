@@ -10,12 +10,20 @@ const Experience = () => {
   return (
     <Container cn="items-start">
       <section className="flex flex-col gap-10 w-full">
-        <Heading
-          tag="h2"
-          cn="text-sm uppercase tracking-widest text-neutral-400"
-        >
-          Experience
-        </Heading>
+        <div className="flex flex-col gap-3 ">
+          <Heading
+            tag="h2"
+            cn="text-xl uppercase tracking-widest text-neutral-300"
+          >
+            Experience
+          </Heading>
+          <Paragraph cn="text-neutral-400 leading-relaxed">
+            A collection of projects I’ve worked on, ranging from production
+            applications to experimental builds. Each project reflects my
+            approach to building scalable, maintainable, and user-friendly web
+            experiences.
+          </Paragraph>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-8 w-full">
           {EXPERIENCE.map((exp) => (

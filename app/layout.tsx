@@ -4,6 +4,7 @@ import RootLayoutClient from "./RootLayoutClient";
 import ScrollToTop from "@/components/web/Home/ScrollToTop";
 
 import { Inter, Roboto } from "next/font/google";
+import { getRootGraphSchema } from "@/helper/seo/schema";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -101,25 +102,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Vaibhav Kumar",
-              url: "https://kumarvaibhav.xyz",
-              sameAs: [
-                "https://github.com/va1bhavx",
-                "https://twitter.com/va1bhavx",
-                "https://www.linkedin.com/in/va1bhavx",
-                "https://medium.com/@va1bhavx",
-                "https://va1bhavx.hashnode.dev",
-                "https://dev.to/va1bhavx",
-              ],
-              jobTitle: "Software Engineer",
-              worksFor: {
-                "@type": "Organization",
-                name: "Aptagrim Limited",
-              },
-            }),
+            __html: JSON.stringify(getRootGraphSchema()),
           }}
         />
 

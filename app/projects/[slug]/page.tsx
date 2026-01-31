@@ -1,6 +1,7 @@
 import ProjectDetails from "./project-details";
 
 import { PROJECTS } from "@/helper/data/ProjectData";
+import { getProjectSchema } from "@/helper/seo/projectSchema";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -48,6 +49,13 @@ export async function generateMetadata({
     },
   };
 }
+
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify(getProjectSchema(PROJECTS)),
+  }}
+/>;
 
 export default function Page() {
   return <ProjectDetails />;
