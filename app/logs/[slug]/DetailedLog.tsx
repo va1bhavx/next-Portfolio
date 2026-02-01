@@ -47,9 +47,13 @@ function DetailedLog() {
             <span>{log.tag}</span>
           </div>
 
-          <Paragraph cn="text-lg text-neutral-400 leading-relaxed">
-            {log.description}
-          </Paragraph>
+          <div className="flex gap-3 flex-col">
+            {log.description.map((d, i) => (
+              <Paragraph cn="text-lg text-neutral-400 leading-relaxed" key={i}>
+                {d}
+              </Paragraph>
+            ))}
+          </div>
         </header>
 
         {log.coverImage && (
