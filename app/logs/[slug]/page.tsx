@@ -19,7 +19,7 @@ export async function generateMetadata({
 
   return {
     title: `${log.title} | Logs | Vaibhav Kumar`,
-    description: log.snippet || log.description,
+    description: log.snippet,
 
     openGraph: {
       title: log.title,
