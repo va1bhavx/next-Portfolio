@@ -29,7 +29,7 @@ interface SIZE_STYLE_VALUE {
 
 const VARIANT_STYLE: VARIANT_STYLE_VALUE = {
   primary:
-    "bg-gradient-to-r from-gray-800  to-gray-900 text-white hover:bg-black",
+    "bg-white text-black border border-neutral-200 hover:border-neutral-300 hover:shadow-sm transition-all duration-200",
   outline: "bg-transparent text-gray-600 hover:bg-zinc-100 ring ring-gray-200",
   ghost: "bg-transparent text-neutral-300 hover:bg-neutral-700",
 };

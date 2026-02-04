@@ -56,8 +56,8 @@ const HeroSection = () => {
             rel="noopener noreferrer"
             aria-label="View Vaibhav Kumar's resume PDF"
           >
-            <Button rightIcon={<Scroll size={14} />} size="md">
-              Resume
+            <Button rightIcon={<Scroll size={14} />} size="sm">
+              Check Resume
             </Button>
           </Link>
         </div>

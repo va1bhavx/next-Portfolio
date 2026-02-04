@@ -18,6 +18,55 @@ export interface ProjectData {
 
 export const PROJECTS: ProjectData[] = [
   {
+    id: 6,
+    cover: "/projects/dep-peek/dep-peek-cover.webp",
+    title: "dep-peek",
+    snippet:
+      "dep-peek is a lightweight CLI tool that helps developers safely identify unused dependencies in JavaScript and TypeScript projects using static analysis.",
+
+    slug: "dep-peek",
+
+    description:
+      "dep-peek is a developer-focused CLI tool I built to understand how static analysis and AST parsing can be used to solve real-world problems. It scans JavaScript and TypeScript projects, analyzes actual import usage, and compares it with package.json to report used and unused dependencies. The tool is intentionally read-only, focusing on clarity and safety rather than automatic cleanup.",
+
+    techStack: [
+      "TypeScript",
+      "Node.js",
+      "Babel Parser",
+      "Babel Traverse",
+      "fast-glob",
+    ],
+
+    role: "Developer Tooling Engineer",
+    status: "Completed (v1)",
+
+    features: [
+      "Detect unused dependencies using AST-based static analysis",
+      "Supports JavaScript and TypeScript projects",
+      "Handles both ES Modules (import) and CommonJS (require)",
+      "Ignores relative imports and Node.js built-in modules",
+      "Safe, read-only CLI that does not modify dependencies",
+    ],
+
+    challenges: [
+      "Designing accurate dependency detection without false positives",
+      "Handling both ESM and CommonJS import patterns",
+      "Normalizing scoped packages and subpath imports correctly",
+      "Dealing with real-world limitations like path aliases and framework-managed dependencies",
+    ],
+
+    outcomes: [
+      "Built and published a real npm CLI package",
+      "Gained hands-on experience with AST parsing and static analysis",
+      "Learned how to design safe and predictable developer tools",
+      "Identified clear roadmap items for future versions (v2)",
+    ],
+
+    github: "https://github.com/va1bhavx/dep-peek",
+    liveDemo: "https://www.npmjs.com/package/dep-peek",
+    images: [],
+  },
+  {
     id: 1,
     cover: "/projects/cover/bitsndbricks.webp",
     title: "BitsndBricks",
