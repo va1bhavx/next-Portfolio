@@ -50,7 +50,7 @@ export const PROJECTS: ProjectData[] = [
     primaryTech: "TypeScript",
     statusVariant: "Completed (v1)",
     quickStats: ["JS & TS support", "Read-only", "Safe analysis"],
-    lastUpdated: "2025-01",
+    lastUpdated: "2025-02",
     slug: "dep-peek",
 
     description:
@@ -104,7 +104,7 @@ export const PROJECTS: ProjectData[] = [
     type: "Web App",
     primaryTech: "Next.js",
     statusVariant: "completed",
-    lastUpdated: "2024-11",
+    lastUpdated: "2024-09",
     quickStats: ["Role-based UI", "Real estate domain", "Production-scale"],
     slug: "bitsndbricks",
 
@@ -173,7 +173,7 @@ export const PROJECTS: ProjectData[] = [
     primaryTech: "React",
     statusVariant: "wip",
     quickStats: ["Reusable components", "Accessible", "Tailwind-based"],
-    lastUpdated: "2025-01",
+    lastUpdated: "2024-06",
     slug: "cultui",
 
     description:
@@ -226,7 +226,7 @@ export const PROJECTS: ProjectData[] = [
     primaryTech: "React",
     statusVariant: "completed",
     quickStats: ["E-commerce", "GPS tracking", "Medical records"],
-    lastUpdated: "2024-09",
+    lastUpdated: "2025-01",
     slug: "peteye",
 
     description:
@@ -286,7 +286,7 @@ export const PROJECTS: ProjectData[] = [
     primaryTech: "React",
     statusVariant: "completed",
     quickStats: ["TMDB API", "Search-driven", "Data-rich UI"],
-    lastUpdated: "2024-06",
+    lastUpdated: "2024-02",
     slug: "movie-gyaan",
 
     description:
@@ -337,7 +337,7 @@ export const PROJECTS: ProjectData[] = [
     primaryTech: "React",
     statusVariant: "completed",
     quickStats: ["Content curation", "Minimal UI", "API-driven"],
-    lastUpdated: "2024-08",
+    lastUpdated: "2025-08",
     slug: "redditwrap",
 
     description:
