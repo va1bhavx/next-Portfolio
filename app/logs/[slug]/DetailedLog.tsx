@@ -36,7 +36,7 @@ function DetailedLog() {
         <header className="flex flex-col gap-4">
           <Heading
             tag="h1"
-            cn="text-3xl md:text-4xl text-neutral-100 leading-snug"
+            cn="text-3xl md:text-4xl text-neutral-100 leading-snug font-extrabold text-balance"
           >
             {log.title}
           </Heading>
@@ -49,6 +49,25 @@ function DetailedLog() {
             <span className="uppercase tracking-wide">{log.tag}</span>
           </div>
 
+          {/* Cover Image */}
+          {log.coverImage && (
+            <figure className="flex flex-col gap-2">
+              <div className="overflow-hidden border border-neutral-800">
+                <Image
+                  src={log.coverImage}
+                  alt={log.title}
+                  width={1400}
+                  height={700}
+                  className="w-full object-cover"
+                  priority
+                />
+              </div>
+              <figcaption className="text-xs text-neutral-500 italic">
+                {log.title}
+              </figcaption>
+            </figure>
+          )}
+
           <div className="flex flex-col gap-3 pt-2">
             {log.description.map((d, i) => (
               <Paragraph key={i} cn="text-lg text-neutral-400 leading-relaxed">
@@ -58,30 +77,14 @@ function DetailedLog() {
           </div>
         </header>
 
-        {/* Cover Image */}
-        {log.coverImage && (
-          <figure className="flex flex-col gap-2">
-            <div className="overflow-hidden border border-neutral-800">
-              <Image
-                src={log.coverImage}
-                alt={log.title}
-                width={1400}
-                height={700}
-                className="w-full object-cover"
-                priority
-              />
-            </div>
-            <figcaption className="text-xs text-neutral-500 italic">
-              {log.title}
-            </figcaption>
-          </figure>
-        )}
-
         {/* Sections */}
         {log.sections.map((section) => (
           <section key={section.id} className="flex flex-col gap-6">
-            <Heading tag="h2" cn="text-2xl text-neutral-200">
-              {section.subheading}
+            <Heading
+              tag="h2"
+              cn="text-xl text-neutral-200 font-medium text-balance leading-snug"
+            >
+              # {section.subheading}
             </Heading>
 
             <div className="flex flex-col gap-5">
