@@ -27,16 +27,7 @@ const Projects = () => {
         {/* Projects grid */}
         <div className="grid md:grid-cols-2 gap-8 w-full">
           {PROJECTS.map((project) => (
-            <ProjectCard
-              key={project.id}
-              project={{
-                cover: project.cover,
-                id: Number(project.id),
-                slug: project.slug,
-                title: project.title,
-                snippet: project.snippet,
-              }}
-            />
+            <ProjectCard key={project.id} project={project} />
           ))}
         </div>
       </section>
