@@ -113,7 +113,10 @@ const Navbar = () => {
       >
         <ul className="flex flex-col items-start gap-3 p-3">
           {LINKS.map((link) => {
-            const isActive = pathname === link.url;
+            const isActive =
+              link.url === "/"
+                ? pathname === "/"
+                : pathname.startsWith(link.url);
 
             return (
               <li key={link.id}>
