@@ -2,15 +2,36 @@ export interface ProjectData {
   id: number;
   cover: string;
   title: string;
-  snippet: string;
-  slug: string;
-  description?: string;
+
+  /** First-glance content */
+  snippet: string; // fallback text
+  tagline?: string; // sharper 1-liner
+  highlight?: string; // key differentiator
+
+  /** Classification */
+  type?: "Web App" | "CLI Tool" | "Library" | "Dashboard" | "Experiment";
+  primaryTech?: string; // e.g. "TypeScript", "React"
   techStack?: string[];
+
+  /** Status & visibility */
+  status?: string; // human-readable
+  statusVariant?: string;
+  lastUpdated?: string; // "2025-01"
+
+  /** Card micro-details */
+  quickStats?: string[]; // 1–3 short points
+
+  /** Routing */
+  slug: string;
+
+  /** Deep-dive content */
+  description?: string;
   role?: string;
-  status?: string;
   features?: string[];
   challenges?: string[];
   outcomes?: string[];
+
+  /** Links & media */
   github?: string;
   liveDemo?: string;
   images: string[];
@@ -23,7 +44,13 @@ export const PROJECTS: ProjectData[] = [
     title: "dep-peek",
     snippet:
       "dep-peek is a lightweight CLI tool that helps developers safely identify unused dependencies in JavaScript and TypeScript projects using static analysis.",
-
+    tagline: "Safely detect unused dependencies using static analysis",
+    highlight: "AST-based analysis with zero side effects",
+    type: "CLI Tool",
+    primaryTech: "TypeScript",
+    statusVariant: "Completed (v1)",
+    quickStats: ["JS & TS support", "Read-only", "Safe analysis"],
+    lastUpdated: "2025-01",
     slug: "dep-peek",
 
     description:
@@ -38,7 +65,7 @@ export const PROJECTS: ProjectData[] = [
     ],
 
     role: "Developer Tooling Engineer",
-    status: "Completed (v1)",
+    status: "",
 
     features: [
       "Detect unused dependencies using AST-based static analysis",
@@ -72,6 +99,13 @@ export const PROJECTS: ProjectData[] = [
     title: "BitsndBricks",
     snippet:
       "A platform where property professionals companies or individuals sign up, register, and start building or applying for work. My very first big project, crafted entirely from scratch, laying the foundation for scalable, user friendly real estate solutions.",
+    tagline: "Role-based real estate platform for professionals",
+    highlight: "Multi-role workflows built from scratch",
+    type: "Web App",
+    primaryTech: "Next.js",
+    statusVariant: "completed",
+    lastUpdated: "2024-11",
+    quickStats: ["Role-based UI", "Real estate domain", "Production-scale"],
     slug: "bitsndbricks",
 
     description:
@@ -133,6 +167,13 @@ export const PROJECTS: ProjectData[] = [
     title: "CultUI",
     snippet:
       "CultUI is a modern, developer-friendly component library designed to streamline the UI development process. It offers a collection of high-quality, customizable, and accessible React components built with TailwindCSS.",
+    tagline: "Reusable, accessible React components with Tailwind",
+    highlight: "Developer-first component design system",
+    type: "Library",
+    primaryTech: "React",
+    statusVariant: "wip",
+    quickStats: ["Reusable components", "Accessible", "Tailwind-based"],
+    lastUpdated: "2025-01",
     slug: "cultui",
 
     description:
@@ -179,6 +220,13 @@ export const PROJECTS: ProjectData[] = [
     title: "PetEye",
     snippet:
       "PetEye is an all-in-one platform catering to pet owners, providing innovative solutions for pet data management, e-commerce, tracking, and community engagement.",
+    tagline: "All-in-one platform for pet care & tracking",
+    highlight: "Multi-module production application",
+    type: "Web App",
+    primaryTech: "React",
+    statusVariant: "completed",
+    quickStats: ["E-commerce", "GPS tracking", "Medical records"],
+    lastUpdated: "2024-09",
     slug: "peteye",
 
     description:
@@ -232,6 +280,13 @@ export const PROJECTS: ProjectData[] = [
     title: "Movie Gyaan",
     snippet:
       "Movie Gyaan is a go to platform for movie enthusiasts, offering detailed insights into a wide range of films. From ratings to budgets, this site provides everything you need to explore the world of cinema.",
+    tagline: "Explore movies with rich data & insights",
+    highlight: "Clean UI over third-party movie APIs",
+    type: "Web App",
+    primaryTech: "React",
+    statusVariant: "completed",
+    quickStats: ["TMDB API", "Search-driven", "Data-rich UI"],
+    lastUpdated: "2024-06",
     slug: "movie-gyaan",
 
     description:
@@ -276,6 +331,13 @@ export const PROJECTS: ProjectData[] = [
     title: "RedditWrap",
     snippet:
       "RedditWrap is your curated gateway to the best of Reddit for developers. No spam. No distractions. Just the most insightful discussions, tips, and resources tailored for the coding community.",
+    tagline: "Noise-free Reddit feed for developers",
+    highlight: "Curated content over raw Reddit feeds",
+    type: "Web App",
+    primaryTech: "React",
+    statusVariant: "completed",
+    quickStats: ["Content curation", "Minimal UI", "API-driven"],
+    lastUpdated: "2024-08",
     slug: "redditwrap",
 
     description:
