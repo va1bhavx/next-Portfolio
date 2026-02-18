@@ -41,7 +41,7 @@ function DetailedLog() {
             {log.title}
           </Heading>
 
-          <div className="flex flex-wrap gap-3 text-sm text-neutral-500">
+          <div className="flex flex-wrap gap-3 text-sm text-emerald-500">
             <span>{log.author}</span>
             <span>•</span>
             <span>{log.date}</span>
@@ -84,7 +84,7 @@ function DetailedLog() {
               tag="h2"
               cn="text-xl text-neutral-200 font-medium text-balance leading-snug"
             >
-              # {section.subheading}
+              <span className="text-emerald-500">#</span> {section.subheading}
             </Heading>
 
             <div className="flex flex-col gap-5">

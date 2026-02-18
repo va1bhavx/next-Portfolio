@@ -152,7 +152,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           className="
             inline-flex items-center gap-1
             text-sm text-neutral-400
-            group-hover:text-neutral-200
+            group-hover:text-emerald-500
             transition
             focus-visible:outline-none
             focus-visible:ring-2 focus-visible:ring-neutral-600

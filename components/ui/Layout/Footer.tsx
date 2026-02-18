@@ -36,7 +36,7 @@ const Footer = () => {
 
           <p>
             Also known online as{" "}
-            <span className="text-neutral-400">va1bhavx</span>.
+            <span className="text-emerald-500">va1bhavx</span>.
           </p>
         </div>
       </div>

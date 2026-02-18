@@ -28,7 +28,7 @@ export const EVENTS: SiteEvent[] = [
     name: "Year End",
     type: "global",
     rule: "year-end",
-    message: "✨ Wrapping up the year — reflecting and refining.",
+    message: "✨ Wrapping up the year, reflecting and refining.",
   },
 
   {
@@ -86,7 +86,7 @@ export const EVENTS: SiteEvent[] = [
     type: "india",
     month: 11,
     range: { from: 1, to: 30 },
-    message: "🪔 Diwali vibes — clarity, light, and clean builds.",
+    message: "🪔 Diwali vibes, clarity, light, and clean builds.",
   },
 
   // 💻 Developer / Tech
@@ -105,7 +105,7 @@ export const EVENTS: SiteEvent[] = [
     type: "tech",
     month: 12,
     day: 4,
-    message: "⚡ JavaScript — powering the modern web.",
+    message: "⚡ JavaScript, powering the modern web.",
   },
 
   {
@@ -123,7 +123,7 @@ export const EVENTS: SiteEvent[] = [
     type: "tech",
     month: 8,
     day: 31,
-    message: "🌍 Open source — built by many, for everyone.",
+    message: "🌍 Open source, built by many, for everyone.",
   },
 
   {

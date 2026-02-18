@@ -58,7 +58,7 @@ function SocialComponent() {
             rel="noopener noreferrer"
             aria-label={`Vaibhav Kumar on ${social.name}`}
             className="
-              text-neutral-400 hover:text-neutral-200
+              text-neutral-400 hover:text-emerald-500
               hover:scale-110 transition-all
             "
           >
