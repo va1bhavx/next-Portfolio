@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
@@ -54,7 +54,7 @@ const Navbar = () => {
       </div>
 
       {/* Navigation Bar */}
-      <div className="flex items-center justify-between border-t-2 border-b-2 border-neutral-700 p-3">
+      <div className="flex items-center w-full justify-between border-t-2 border-b-2 border-neutral-700 p-3">
         {/* Desktop Links */}
         <ul className="hidden md:flex items-center gap-4">
           {LINKS.map((link) => {
@@ -64,7 +64,7 @@ const Navbar = () => {
                 : pathname.startsWith(link.url);
 
             return (
-              <>
+              <React.Fragment key={link.id}>
                 <li key={link.id}>
                   <Link
                     href={link.url}
@@ -78,7 +78,7 @@ const Navbar = () => {
                     {link.name}
                   </Link>
                 </li>
-              </>
+              </React.Fragment>
             );
           })}
         </ul>
@@ -91,18 +91,9 @@ const Navbar = () => {
         >
           {isMenuOpen ? <X /> : <Menu />}
         </button>
-        <Paragraph
-          key={Math.floor(Math.random() * 9999)}
-          cn="
-    block
-    text-xs text-neutral-400
-    max-w-xs truncate
-    opacity-80
-    animate-fadeIn
-  "
-        >
-          {greeting}
-        </Paragraph>
+        <div className="flex items-end sm:items-center gap-2 text-neutral-400 max-w-40 ml-auto sm:max-w-full text-[9px] sm:text-xs">
+          <span className="tracking-wide">{greeting}</span>
+        </div>
       </div>
 
       {/* Mobile Menu */}

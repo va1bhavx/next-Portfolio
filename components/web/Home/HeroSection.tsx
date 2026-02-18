@@ -11,7 +11,10 @@ const HeroSection = () => {
       <section className="flex gap-12 flex-col w-full">
         {/* Identity */}
         <div className="flex flex-col gap-3 max-w-2xl">
-          <Heading tag="h1" cn="text-4xl text-neutral-200 text-balance">
+          <Heading
+            tag="h1"
+            cn="text-4xl text-neutral-200 text-balance leading-tight"
+          >
             Hi, I’m Vaibhav Kumar
           </Heading>
 

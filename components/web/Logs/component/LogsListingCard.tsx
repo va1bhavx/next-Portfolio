@@ -29,8 +29,8 @@ function LogsListingCard({
           </Heading>
         </Link>
 
-        <Paragraph cn="text-xs text-neutral-500">
-          {date} • {author}
+        <Paragraph cn="text-xs text-neutral-300">
+          {date} • <span className="text-emerald-500">{author}</span>
         </Paragraph>
       </div>
 
@@ -40,7 +40,7 @@ function LogsListingCard({
 
       <Link
         href={`/logs/${slug}`}
-        className="inline-block mt-3 text-sm text-neutral-400 hover:text-white transition"
+        className="inline-block mt-3 text-sm text-neutral-400 hover:text-emerald-500 transition"
       >
         Read log →
       </Link>

@@ -72,7 +72,8 @@ export default function Testimonials() {
                 {current.user.name}
               </Paragraph>
               <Paragraph cn="text-neutral-400 text-xs">
-                {current.user.designation}, {current.user.company}
+                {current.user.designation},{" "}
+                <span className="text-emerald-500">{current.user.company}</span>
               </Paragraph>
             </div>
 
