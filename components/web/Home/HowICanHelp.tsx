@@ -42,10 +42,10 @@ const HowICanHelp = () => {
             const Icon = item.icon;
 
             return (
-              <div key={idx} className="flex flex-col gap-4">
+              <div key={idx} className="flex flex-col gap-4 group">
                 <Icon
                   size={20}
-                  className="text-neutral-400"
+                  className="text-emerald-500 lg:text-neutral-400 group-hover:text-emerald-500"
                   aria-hidden="true"
                 />
 
