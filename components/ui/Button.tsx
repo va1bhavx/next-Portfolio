@@ -30,7 +30,8 @@ interface SIZE_STYLE_VALUE {
 const VARIANT_STYLE: VARIANT_STYLE_VALUE = {
   primary:
     "bg-white text-black border border-neutral-200 hover:border-neutral-300 hover:shadow-sm transition-all duration-200",
-  outline: "bg-transparent text-gray-600 hover:bg-zinc-100 ring ring-gray-200",
+  outline:
+    "bg-transparent text-gray-300 hover:bg-zinc-100/30 ring ring-gray-200/30",
   ghost: "bg-transparent text-neutral-300 hover:bg-neutral-700",
 };
 
@@ -61,7 +62,7 @@ const Button: React.FC<ButtonProps> = ({
       disabled={isLoading}
       aria-label={label || "button element"}
       className={`
-        inline-flex items-center justify-center gap-2 
+        inline-flex items-center justify-center gap-2
         font-medium transition-all duration-200 ease-in-out rounded-lg cursor-pointer active:scale-90 font-open
         ${variantClass} ${sizeClass} ${cn}
         ${isLoading || disabled ? "opacity-60 cursor-not-allowed" : ""}

@@ -2,9 +2,11 @@ import Container from "../../ui/Container";
 import Heading from "../../ui/Heading";
 import Paragraph from "../../ui/Paragraph";
 import Button from "../../ui/Button";
+import Pills from "../../ui/Pills";
 import Link from "next/link";
-import { BrainCircuit, ChevronRight, Link2 } from "lucide-react";
+import { ArrowUpRight, Calendar, Link2 } from "lucide-react";
 import { ImageCarousel } from "../../ui/ImageCarousel";
+import { EXPERIENCE } from "@/helper/data/ExperienceData";
 
 const IMAGES = [
   "/company/aptagrim/aptagrim_1.webp",
@@ -16,103 +18,108 @@ const IMAGES = [
   "/company/aptagrim/aptagrim_7.webp",
 ];
 
+const CURRENT_ROLE = EXPERIENCE[0];
+
 const ExperienceSection = () => {
   return (
     <Container>
-      <section className="flex flex-col gap-12 w-full">
-        {/* Section Heading */}
-        <Heading
-          tag="h2"
-          cn="text-lg uppercase tracking-widest text-neutral-400"
-        >
-          Experience
-        </Heading>
+      <section className="flex flex-col gap-8 w-full">
+        {/* Section Header */}
+        <div className="flex items-end justify-between w-full">
+          <Heading
+            tag="h2"
+            cn="text-lg uppercase tracking-widest text-neutral-400"
+          >
+            Experience
+          </Heading>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-          {/* Company Info */}
-          <div className="flex flex-col gap-4">
-            <Heading
-              tag="h3"
-              cn="text-xl text-neutral-200 font-normal flex items-center gap-2"
-            >
-              <BrainCircuit size={18} className="text-neutral-400" />
-              Aptagrim Limited
-            </Heading>
+          <Link
+            href="/experience"
+            aria-label="View full work experience"
+            className="text-sm text-neutral-400 hover:text-neutral-200 transition"
+          >
+            View all experience →
+          </Link>
+        </div>
 
-            <Paragraph cn="text-sm text-neutral-400">
-              NextJS Developer · 2025 — Present
-            </Paragraph>
-            <div>
-              <ImageCarousel images={IMAGES} />
-            </div>
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 lg:items-center w-full">
+          {/* Visual — kept modest, this is a teaser not a gallery */}
+          <div className="relative w-full lg:w-[38%] shrink-0 rounded-lg overflow-hidden border border-neutral-800">
+            <span className="absolute top-3 left-3 z-20 flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-wide bg-neutral-900/80 backdrop-blur text-emerald-400 px-2 py-1 rounded-full border border-emerald-500/30">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              </span>
+              Current role
+            </span>
+            <ImageCarousel images={IMAGES} showPlayPause={false} />
           </div>
 
-          {/* Role Description */}
-          <div className="lg:col-span-2 flex flex-col gap-6">
-            <Paragraph cn="text-neutral-400 leading-relaxed">
-              At Aptagrim, I work as a NextJS developer building scalable,
-              user-focused web applications. My role involves translating
-              product requirements into reliable, production-ready features
-              using modern frontend engineering practices.
+          {/* Content */}
+          <div className="flex-1 flex flex-col gap-4">
+            <span className="text-xs uppercase tracking-widest text-emerald-500 font-medium">
+              Featured Case Study
+            </span>
+
+            <Heading tag="h3" cn="text-2xl text-neutral-100 font-semibold">
+              {CURRENT_ROLE.role} at {CURRENT_ROLE.company}
+            </Heading>
+
+            <div className="flex items-center gap-1.5 text-sm text-neutral-400">
+              <Calendar size={14} />
+              {CURRENT_ROLE.duration}
+            </div>
+
+            <Paragraph cn="text-neutral-300 leading-relaxed">
+              Shipping real-time dashboards, live video calls, and map-based
+              field tracking for a loan recovery platform used daily by
+              operations teams where every feature has to hold up under real,
+              messy, real-time data.
             </Paragraph>
 
-            <ul className="space-y-2 body text-neutral-400 text-sm list-disc pl-5">
-              <li>
-                <Paragraph cn="text-neutral-400 leading-relaxed">
-                  Built responsive and modular UI using NextJS and Tailwind CSS
-                </Paragraph>
-              </li>
-              <li>
-                <Paragraph cn="text-neutral-400 leading-relaxed">
-                  Developed reusable component systems and internal frontend
-                  tools
-                </Paragraph>
-              </li>
-              <li>
-                <Paragraph cn="text-neutral-400 leading-relaxed">
-                  Integrated APIs, managed async data flows, and improved
-                  performance
-                </Paragraph>
-              </li>
-
-              <li>
-                <Paragraph cn="text-neutral-400 leading-relaxed">
-                  Collaborated on frontend architecture and design systems
-                </Paragraph>
-              </li>
-            </ul>
-
-            <Paragraph cn="text-neutral-400 leading-relaxed">
-              This role strengthened my understanding of production-grade
-              frontend systems and reinforced the importance of maintainable,
-              well-structured codebases.
-            </Paragraph>
+            <div className="flex flex-wrap gap-2">
+              {CURRENT_ROLE.tech.slice(0, 5).map((t, i) => (
+                <Pills status="info" key={i}>
+                  {t}
+                </Pills>
+              ))}
+            </div>
 
             {/* Actions */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
+              <Link
+                href="/experience/aptagrim"
+                aria-label="Read the full Aptagrim case study"
+                className="group"
+              >
+                <Button
+                  size="sm"
+                  rightIcon={
+                    <ArrowUpRight
+                      size={16}
+                      className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    />
+                  }
+                >
+                  Explore the Case Study
+                </Button>
+              </Link>
+
               <a
                 href="https://demo-synctech.aptagrim.co/auth/signin"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="View BitsndBricks live project"
+                aria-label="View live SIGMA project"
               >
-                <Button size="sm" rightIcon={<Link2 size={14} />}>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  rightIcon={<Link2 size={14} />}
+                  className="text-white!"
+                >
                   Live Project
                 </Button>
               </a>
-
-              <Link
-                href="/experience/aptagrim"
-                aria-label="Read more about BitsndBricks project"
-              >
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  rightIcon={<ChevronRight size={14} />}
-                >
-                  Case Study
-                </Button>
-              </Link>
             </div>
           </div>
         </div>

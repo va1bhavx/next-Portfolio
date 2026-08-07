@@ -38,3 +38,7 @@ li,
 a {
   font-family: var(--font-body);
 }
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}

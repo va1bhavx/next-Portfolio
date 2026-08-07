@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import RootLayoutClient from "./RootLayoutClient";
 import ScrollToTop from "@/components/web/Home/ScrollToTop";
@@ -89,6 +89,10 @@ export const metadata: Metadata = {
       follow: true,
     },
   },
+};
+
+export const viewport: Viewport = {
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
