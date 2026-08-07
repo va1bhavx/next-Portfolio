@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import Footer from "@/components/ui/Layout/Footer";
 import LoadingScreen from "@/components/ui/LoadingScreen";
 import Navbar from "@/components/ui/Layout/Navbar";
+import MobileDock from "@/components/ui/Layout/MobileDock";
 import { LogsProvider } from "@/context/LogContext";
 
 export default function RootLayoutClient({
@@ -36,11 +37,12 @@ export default function RootLayoutClient({
           <header className=" md:max-w-4xl w-full mx-auto pt-2">
             <Navbar />
           </header>
-          <main className=" flex flex-col flex-auto basis-0 overflow-auto ">
+          <main className="flex flex-col flex-auto basis-0 overflow-auto pb-28 md:pb-0">
             {children}
           </main>
 
           <Footer />
+          <MobileDock />
         </div>
       </LogsProvider>
     </>

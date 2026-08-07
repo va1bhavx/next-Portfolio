@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import Heading from "../Heading";
 import Paragraph from "../Paragraph";
@@ -17,7 +16,6 @@ const LINKS = [
 
 const Navbar = () => {
   const [date, setDate] = useState("");
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
   const DEFAULT_MESSAGE =
@@ -83,50 +81,9 @@ const Navbar = () => {
           })}
         </ul>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden"
-          aria-label="Toggle navigation menu"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? <X /> : <Menu />}
-        </button>
-        <div className="flex items-end sm:items-center gap-2 text-neutral-400 max-w-40 ml-auto sm:max-w-full text-[9px] sm:text-xs">
+        <div className="flex items-end sm:items-center gap-2 text-neutral-400 max-w-full sm:max-w-full text-[9px] sm:text-xs ml-auto">
           <span className="tracking-wide">{greeting}</span>
         </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <div
-        className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out border-b-2 border-neutral-700 ${
-          isMenuOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        <ul className="flex flex-col items-start gap-3 p-3">
-          {LINKS.map((link) => {
-            const isActive =
-              link.url === "/"
-                ? pathname === "/"
-                : pathname.startsWith(link.url);
-
-            return (
-              <li key={link.id}>
-                <Link
-                  href={link.url}
-                  className={`body hover:underline transition-all duration-300  ${
-                    isActive
-                      ? "font-bold text-neutral-300 "
-                      : "text-neutral-500"
-                  }`}
-                  aria-label={`Navigate to ${link.name} page`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
       </div>
     </nav>
   );
