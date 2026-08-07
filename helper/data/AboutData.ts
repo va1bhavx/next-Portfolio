@@ -45,7 +45,7 @@ export const QUIRKS: Quirk[] = [
   {
     emoji: "🌙",
     label: "Night owl",
-    detail: "More of a night owl than an early bird — best ideas show up late.",
+    detail: "More of a night owl than an early bird best ideas show up late.",
   },
   {
     emoji: "🎧",

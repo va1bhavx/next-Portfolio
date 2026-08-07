@@ -114,11 +114,7 @@ const AboutPage = () => {
             <div className="border-t border-neutral-800" />
 
             <Link href={RESUME_URL} target="_blank" rel="noopener noreferrer">
-              <Button
-                rightIcon={<Scroll size={14} />}
-                size="sm"
-                cn="w-full"
-              >
+              <Button rightIcon={<Scroll size={14} />} size="sm" cn="w-full">
                 Check Resume
               </Button>
             </Link>
@@ -132,15 +128,14 @@ const AboutPage = () => {
               </Heading>
               <Paragraph cn="text-lg text-neutral-400 leading-relaxed">
                 I didn&apos;t get into programming because I always dreamed of
-                writing code — I got into it because I enjoyed building
-                things. During college, I started exploring web development
-                and was fascinated by how a few lines of HTML, CSS, and
-                JavaScript could turn ideas into something people could
-                actually use. That curiosity quickly turned into an obsession
-                with React, where I found the perfect mix of logic,
-                creativity, and problem-solving. Since then, I&apos;ve been
-                focused on creating products that solve real problems rather
-                than just completing tutorials.
+                writing code I got into it because I enjoyed building things.
+                During college, I started exploring web development and was
+                fascinated by how a few lines of HTML, CSS, and JavaScript could
+                turn ideas into something people could actually use. That
+                curiosity quickly turned into an obsession with React, where I
+                found the perfect mix of logic, creativity, and problem-solving.
+                Since then, I&apos;ve been focused on creating products that
+                solve real problems rather than just completing tutorials.
               </Paragraph>
             </section>
 
@@ -195,7 +190,7 @@ const AboutPage = () => {
                 Currently Exploring
               </Heading>
               <Paragraph cn="text-sm text-neutral-400">
-                Frontend developer transitioning into full-stack engineering —
+                Frontend developer transitioning into full-stack engineering
                 here&apos;s what&apos;s on the workbench right now.
               </Paragraph>
               <div className="flex flex-wrap gap-2">

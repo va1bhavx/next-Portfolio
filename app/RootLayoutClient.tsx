@@ -6,6 +6,7 @@ import Footer from "@/components/ui/Layout/Footer";
 import LoadingScreen from "@/components/ui/LoadingScreen";
 import Navbar from "@/components/ui/Layout/Navbar";
 import MobileDock from "@/components/ui/Layout/MobileDock";
+import CommandTerminal from "@/components/web/Terminal/CommandTerminal";
 import { LogsProvider } from "@/context/LogContext";
 
 export default function RootLayoutClient({
@@ -43,6 +44,7 @@ export default function RootLayoutClient({
 
           <Footer />
           <MobileDock />
+          <CommandTerminal />
         </div>
       </LogsProvider>
     </>

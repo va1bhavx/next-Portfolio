@@ -8,7 +8,7 @@ import { FaHashnode } from "react-icons/fa6";
 import { LiaLinkedinIn } from "react-icons/lia";
 import Tooltip from "../ui/Tooltip";
 
-const SOCIALS = [
+export const SOCIALS = [
   {
     id: 1,
     name: "Twitter (X)",
