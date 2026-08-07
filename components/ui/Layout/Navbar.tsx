@@ -66,7 +66,7 @@ const Navbar = () => {
                 <li key={link.id}>
                   <Link
                     href={link.url}
-                    className={`body hover:underline transition-all duration-300  ${
+                    className={`body hover:underline transition-all duration-300 text-sm  ${
                       isActive
                         ? "font-bold text-neutral-300"
                         : "text-neutral-500"
