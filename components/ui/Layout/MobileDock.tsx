@@ -3,13 +3,20 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, FolderKanban, Briefcase, NotebookText } from "lucide-react";
+import {
+  Home,
+  UserRound,
+  FolderKanban,
+  Briefcase,
+  NotebookText,
+} from "lucide-react";
 
 const LINKS = [
   { id: 1, name: "Home", url: "/", icon: Home },
-  { id: 2, name: "Projects", url: "/projects", icon: FolderKanban },
-  { id: 3, name: "Experience", url: "/experience", icon: Briefcase },
-  { id: 4, name: "Logs", url: "/logs", icon: NotebookText },
+  { id: 2, name: "About", url: "/about", icon: UserRound },
+  { id: 3, name: "Projects", url: "/projects", icon: FolderKanban },
+  { id: 4, name: "Experience", url: "/experience", icon: Briefcase },
+  { id: 5, name: "Logs", url: "/logs", icon: NotebookText },
 ];
 
 interface PillRect {
@@ -82,7 +89,7 @@ const MobileDock = () => {
                 href={url}
                 aria-label={`Navigate to ${name} page`}
                 aria-current={isActive ? "page" : undefined}
-                className={`relative z-10 flex flex-col items-center justify-center gap-0 w-16 h-11 rounded-full transition-colors duration-300 ${
+                className={`relative z-10 flex flex-col items-center justify-center gap-0 w-14 h-11 rounded-full transition-colors duration-300 ${
                   isActive
                     ? "text-emerald-500"
                     : "text-neutral-400 active:scale-90"
