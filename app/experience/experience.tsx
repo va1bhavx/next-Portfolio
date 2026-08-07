@@ -1,10 +1,8 @@
 import Container from "@/components/ui/Container";
 import Heading from "@/components/ui/Heading";
 import Paragraph from "@/components/ui/Paragraph";
-import { Briefcase, Calendar, ChevronRight } from "lucide-react";
-import Link from "next/link";
+import ExperienceCard from "@/components/ui/ExperienceCard";
 import { EXPERIENCE } from "@/helper/data/ExperienceData";
-import Pills from "@/components/ui/Pills";
 
 const Experience = () => {
   return (
@@ -26,64 +24,8 @@ const Experience = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 w-full">
-          {EXPERIENCE.map((exp) => (
-            <div
-              key={exp.id}
-              className="
-                border border-neutral-800
-                bg-neutral-900/60
-                p-6
-                flex flex-col gap-4
-                transition
-                hover:border-neutral-700
-                hover:-translate-y-1
-                rounded-lg
-                group
-              "
-            >
-              <div className="flex items-center justify-between flex-wrap gap-2">
-                <div className="flex items-center gap-2">
-                  <Briefcase size={16} className="text-neutral-400" />
-                  <Heading tag="h3" cn="text-neutral-200 text-sm font-medium">
-                    {exp.company}
-                  </Heading>
-                </div>
-
-                <div className="flex items-center text-xs text-neutral-400 gap-1 ">
-                  <Calendar size={14} />
-                  {exp.duration}
-                </div>
-              </div>
-
-              <Heading tag="h4" cn="text-lg font-medium text-neutral-100">
-                {exp.role}
-              </Heading>
-
-              <Paragraph cn="text-sm text-neutral-400 leading-relaxed line-clamp-3">
-                {exp.description}
-              </Paragraph>
-
-              <div className="flex flex-wrap gap-2">
-                {exp.tech.map((t, i) => (
-                  <Pills status="info" key={i}>
-                    {t}
-                  </Pills>
-                ))}
-              </div>
-
-              <Link
-                href={`/experience${exp.slug}`}
-                className="
-                  text-sm text-neutral-400
-                  hover:text-neutral-200
-                  transition
-                  flex items-center gap-1 w-max
-                  group-hover:text-emerald-500
-                "
-              >
-                View case study <ChevronRight size={16} />
-              </Link>
-            </div>
+          {EXPERIENCE.map((exp, i) => (
+            <ExperienceCard key={exp.id} experience={exp} current={i === 0} />
           ))}
         </div>
       </section>

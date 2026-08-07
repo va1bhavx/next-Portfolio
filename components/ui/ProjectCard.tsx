@@ -4,6 +4,7 @@ import Heading from "./Heading";
 import Paragraph from "./Paragraph";
 import Link from "next/link";
 import { ProjectData } from "@/helper/data/ProjectData";
+import { ChevronRight } from "lucide-react";
 
 interface ProjectCardProps {
   project: ProjectData;
@@ -33,10 +34,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
     <article
       className="
-        group relative flex flex-col gap-4
+        group relative flex flex-col
         bg-neutral-900/70
         border border-neutral-800
-        p-5 rounded-lg
+        rounded-xl overflow-hidden
         transition-all duration-300
         hover:-translate-y-1
         hover:border-neutral-600
@@ -45,8 +46,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         focus-within:border-neutral-600
       "
     >
-      {/* Cover */}
-      <div className="relative overflow-hidden rounded-lg">
+      {/* Cover — edge to edge */}
+      <div className="relative overflow-hidden">
         <Image
           src={cover}
           alt={title}
@@ -58,6 +59,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             group-hover:scale-[1.03]
           "
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/70 via-transparent to-transparent" />
 
         {/* Type badge */}
         {type && (
@@ -67,28 +69,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               text-xs font-medium
               bg-neutral-900/80 backdrop-blur
               text-neutral-200
-              px-2 py-1 rounded
+              px-2 py-1 rounded-md
               border border-neutral-700
             "
           >
             {type}
           </span>
         )}
-      </div>
 
-      {/* Header */}
-      <div className="flex items-start justify-between gap-2">
-        <Heading
-          cn="text-lg text-neutral-100 font-medium group-hover:text-white transition"
-          tag="h3"
-        >
-          {title}
-        </Heading>
-
+        {/* Status badge */}
         {statusVariant && (
           <span
             className={`
-              text-xs px-2 py-0.5 rounded border
+              absolute top-3 right-3
+              text-xs px-2 py-0.5 rounded-md border backdrop-blur
               ${statusColorMap[statusVariant] ?? statusColorMap.archived}
             `}
           >
@@ -97,18 +91,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         )}
       </div>
 
-      {/* Primary description */}
-      <Paragraph cn="text-sm text-neutral-300 leading-relaxed">
-        {tagline ?? snippet}
-      </Paragraph>
+      {/* Content */}
+      <div className="flex flex-col gap-3 p-5 flex-1">
+        <Heading
+          cn="text-lg text-neutral-100 font-medium group-hover:text-white transition"
+          tag="h3"
+        >
+          {title}
+        </Heading>
 
-      {/* Secondary info (progressive reveal) */}
-      <div
-        className="
-          flex flex-col gap-2
-          transition-all duration-300
-        "
-      >
+        {/* Primary description */}
+        <Paragraph cn="text-sm text-neutral-300 leading-relaxed">
+          {tagline ?? snippet}
+        </Paragraph>
+
         {highlight && (
           <p className="text-xs text-neutral-400 italic">{highlight}</p>
         )}
@@ -143,28 +139,29 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             ))}
           </div>
         )}
-      </div>
 
-      {/* CTA */}
-      <div className="pt-2 mt-auto">
-        <Link
-          href={`/projects/${slug}`}
-          className="
-            inline-flex items-center gap-1
-            text-sm text-neutral-400
-            group-hover:text-emerald-500
-            transition
-            focus-visible:outline-none
-            focus-visible:ring-2 focus-visible:ring-neutral-600
-            rounded
-          "
-          aria-label={`Read more about project ${title}`}
-        >
-          View project
-          <span className="transition-transform group-hover:translate-x-1">
-            →
-          </span>
-        </Link>
+        {/* CTA */}
+        <div className="pt-2 mt-auto">
+          <Link
+            href={`/projects/${slug}`}
+            className="
+              inline-flex items-center gap-1
+              text-sm text-neutral-400
+              group-hover:text-emerald-500
+              transition
+              focus-visible:outline-none
+              focus-visible:ring-2 focus-visible:ring-neutral-600
+              rounded
+            "
+            aria-label={`Read more about project ${title}`}
+          >
+            View project
+            <ChevronRight
+              size={16}
+              className="transition-transform group-hover:translate-x-1"
+            />
+          </Link>
+        </div>
       </div>
     </article>
   );
