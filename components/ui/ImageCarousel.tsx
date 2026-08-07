@@ -83,6 +83,15 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({
   // Keyboard navigation
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
+      const target = document.activeElement;
+      const isEditable =
+        target &&
+        (target.tagName === "INPUT" ||
+          target.tagName === "TEXTAREA" ||
+          (target as HTMLElement).isContentEditable);
+
+      if (isEditable) return;
+
       if (isLightboxOpen) {
         if (e.key === "ArrowLeft") prevLightboxImage();
         if (e.key === "ArrowRight") nextLightboxImage();

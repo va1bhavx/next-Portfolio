@@ -42,3 +42,13 @@ a {
 .pb-safe {
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
