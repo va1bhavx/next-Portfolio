@@ -9,9 +9,10 @@ import { getActiveEvent } from "@/helper/utils/getActiveEvent";
 
 const LINKS = [
   { id: 1, name: "Home", url: "/" },
-  { id: 2, name: "Projects", url: "/projects" },
-  { id: 3, name: "Experience", url: "/experience" },
-  { id: 4, name: "Logs", url: "/logs" },
+  { id: 2, name: "About", url: "/about" },
+  { id: 3, name: "Projects", url: "/projects" },
+  { id: 4, name: "Experience", url: "/experience" },
+  { id: 5, name: "Logs", url: "/logs" },
 ];
 
 const Navbar = () => {

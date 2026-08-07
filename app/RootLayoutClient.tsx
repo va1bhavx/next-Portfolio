@@ -37,7 +37,7 @@ export default function RootLayoutClient({
           <header className=" md:max-w-4xl w-full mx-auto pt-2">
             <Navbar />
           </header>
-          <main className="flex flex-col flex-auto basis-0 overflow-auto pb-28 md:pb-0">
+          <main className="flex flex-col flex-auto basis-0 pb-28 md:pb-0">
             {children}
           </main>
 
