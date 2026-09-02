@@ -8,6 +8,7 @@ interface LogsListingCardProps {
   description: string;
   date: string;
   author: string;
+  readingTime?: string;
 }
 
 function LogsListingCard({
@@ -16,6 +17,7 @@ function LogsListingCard({
   slug,
   title,
   author,
+  readingTime,
 }: LogsListingCardProps) {
   return (
     <article className="w-full border-b border-neutral-800 pb-6 group">
@@ -31,6 +33,11 @@ function LogsListingCard({
 
         <Paragraph cn="text-xs text-neutral-300">
           {date} • <span className="text-emerald-500">{author}</span>
+          {readingTime && (
+            <>
+              {" "}• <span className="text-neutral-400">{readingTime}</span>
+            </>
+          )}
         </Paragraph>
       </div>
 

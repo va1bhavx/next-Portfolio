@@ -3,7 +3,8 @@ import Link from "next/link";
 import Heading from "@/components/ui/Heading";
 import Paragraph from "@/components/ui/Paragraph";
 import { LogsDetail } from "@/helper/data/LogData";
-import { Calendar } from "lucide-react";
+import { Calendar, Clock } from "lucide-react";
+import { getReadingTime } from "@/helper/utils/getReadingTime";
 
 interface LogCardProps {
   log: LogsDetail;
@@ -73,6 +74,11 @@ const LogCard: React.FC<LogCardProps> = ({ log }) => {
           <span className="flex items-center gap-1.5">
             <Calendar size={12} />
             {date}
+          </span>
+          <span>•</span>
+          <span className="flex items-center gap-1.5">
+            <Clock size={12} />
+            {getReadingTime(log).text}
           </span>
           {!coverImage && tag && (
             <span className="uppercase tracking-wide text-emerald-500">

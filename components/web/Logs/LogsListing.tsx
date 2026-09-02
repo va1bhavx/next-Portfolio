@@ -4,6 +4,7 @@ import Paragraph from "@/components/ui/Paragraph";
 import LogsListingCard from "./component/LogsListingCard";
 import { useLogContext } from "@/context/LogContext";
 import { FileSearch } from "lucide-react";
+import { getReadingTime } from "@/helper/utils/getReadingTime";
 
 function LogsListing() {
   const { logs } = useLogContext();
@@ -38,6 +39,7 @@ function LogsListing() {
             slug={log.slug}
             author={log.author}
             title={log.title}
+            readingTime={getReadingTime(log).text}
           />
         ))}
 
