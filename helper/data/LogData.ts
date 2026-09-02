@@ -1,5 +1,11 @@
 import { AUTHOR_NAME } from "./common";
 
+export interface LogLink {
+  title: string;
+  url: string;
+  description?: string;
+}
+
 export interface LogsDetail {
   id: number;
   title: string;
@@ -10,19 +16,346 @@ export interface LogsDetail {
   date: string;
   tag: string;
   coverImage?: string;
+  links?: LogLink[];
   sections: {
     id: number;
     subheading: string;
+    links?: LogLink[];
     content: {
-      type: "text" | "image" | "quote" | "callout" | "code";
+      type: "text" | "image" | "quote" | "callout" | "code" | "link";
       value?: string;
       src?: string;
       alt?: string;
+      title?: string;
+      url?: string;
+      description?: string;
     }[];
   }[];
 }
 
 export const Logs: LogsDetail[] = [
+  {
+    id: Math.floor(Math.random() * 9999),
+
+    title: "Building Continuo: A New Tab for Continuing Work",
+
+    description: [
+      "A new browser tab is usually treated as an empty starting point. But for me, opening a new tab often meant losing the reason I opened it in the first place. Continuo started with a simple question: what if your New Tab could remind you what you came here to do?",
+      "Continuo is a focused Chrome extension that replaces the default New Tab with a quiet personal workspace built around intention, focus sessions, and reflection. Instead of adding another productivity system to manage, the goal is to keep the user's current work visible and make it easier to return to it.",
+      "Building Continuo became an exercise in deciding what belongs in a productivity product and, perhaps more importantly, what doesn't. The result is a feature-rich but intentionally personal workspace with focus sessions, history, statistics, tasks, scheduling, quick links, achievements, streaks, and customization  while keeping user data entirely local to the browser.",
+    ],
+
+    snippet:
+      "The story behind Continuo a focused Chrome New Tab built to keep your current work visible, preserve your progress, and make it easier to continue.",
+
+    slug: "building-continuo-a-new-tab-for-continuing-work",
+
+    author: AUTHOR_NAME,
+
+    date: "02 September, 2026",
+
+    tag: "Product",
+
+    coverImage: "/logs/cover/continuo.webp",
+
+    sections: [
+      {
+        id: Math.floor(Math.random() * 9999),
+
+        subheading: "The problem started with a new tab",
+
+        content: [
+          {
+            type: "text",
+            value:
+              "Opening a new tab sounds like a simple action. Most of the time, it means you already know what you want to do next. But browsers also make it incredibly easy to lose that intention.",
+          },
+          {
+            type: "text",
+            value:
+              "You open a tab to look something up, notice something else, open another tab, and eventually find yourself doing something completely unrelated to what you originally intended.",
+          },
+          {
+            type: "text",
+            value:
+              "That small loss of context is what made me think differently about the New Tab page. Instead of using it as another place to display content, what if it could simply remind you what you were already trying to accomplish?",
+          },
+        ],
+      },
+
+      {
+        id: Math.floor(Math.random() * 9999),
+
+        subheading: "What Continuo is actually trying to do",
+
+        content: [
+          {
+            type: "text",
+            value:
+              "Continuo is a Chrome extension that replaces the browser's default New Tab page with a focused personal workspace. The core idea is intentionally simple: define what you're working on, focus on it, and keep a record of what you accomplished.",
+          },
+          {
+            type: "text",
+            value:
+              "The name Continuo comes from the idea of continuing rather than constantly restarting. The product isn't meant to tell you what you should work on. It starts with something you already know you want to do and keeps that intention visible.",
+          },
+          {
+            type: "image",
+            value:
+              "The guiding idea behind the product is simple: Open. Remember. Continue.",
+            src: "/projects/continuo/continuo-1.webp",
+          },
+        ],
+      },
+
+      {
+        id: Math.floor(Math.random() * 9999),
+
+        subheading: "Why I didn't want another productivity dashboard",
+
+        content: [
+          {
+            type: "text",
+            value:
+              "There are countless productivity applications that can manage tasks, projects, calendars, habits, goals, and analytics. I didn't want Continuo to become another system that requires constant management before you can actually start working.",
+          },
+          {
+            type: "text",
+            value:
+              "The product is designed around a much smaller interaction. You define your current intention, start a focus session, and work. When you're finished, you can record what you accomplished and move on.",
+          },
+          {
+            type: "text",
+            value:
+              "That doesn't mean Continuo has to be empty or limited. It has tasks, scheduling, statistics, achievements, streaks, quick links, and customization. The important distinction is that these features support the focus experience rather than becoming the experience itself.",
+          },
+        ],
+      },
+
+      {
+        id: Math.floor(Math.random() * 9999),
+
+        subheading: "Designing a quiet workspace",
+
+        content: [
+          {
+            type: "text",
+            value:
+              "The visual direction of Continuo was intentionally different from the typical productivity application. I wanted the interface to feel personal, calm, and slightly atmospheric rather than looking like a traditional dashboard.",
+          },
+          {
+            type: "text",
+            value:
+              "Custom wallpapers provide most of the personality, while the interface sits on top of them with enough contrast to keep the actual work visible. The clock, focus timer, links, and supporting controls are designed to stay present without constantly demanding attention.",
+          },
+          {
+            type: "text",
+            value:
+              "The challenge was finding the balance between making the New Tab feel good to use and making sure the visual design never became another distraction.",
+          },
+        ],
+      },
+
+      {
+        id: Math.floor(Math.random() * 9999),
+
+        subheading: "Building the focus session system",
+
+        content: [
+          {
+            type: "text",
+            value:
+              "The central interaction in Continuo is the focus session. A user starts by defining an intention, then starts a stopwatch that tracks how long they remain focused on it.",
+          },
+          {
+            type: "text",
+            value:
+              "The session can be paused, resumed, completed, or stopped. When it ends, Continuo gives the user the option to record what they accomplished before saving the session to History.",
+          },
+          {
+            type: "text",
+            value:
+              "One of the more important engineering decisions was making sessions persistent. If the browser is reloaded or restarted while a session is active, Continuo can recover the session and calculate the elapsed time rather than simply losing the state.",
+          },
+        ],
+      },
+
+      {
+        id: Math.floor(Math.random() * 9999),
+
+        subheading: "Keeping the browser in sync",
+
+        content: [
+          {
+            type: "text",
+            value:
+              "Because Continuo replaces the New Tab page, users can naturally have multiple instances of it open at the same time. That introduced an interesting requirement: an active focus session shouldn't exist independently in every tab.",
+          },
+          {
+            type: "text",
+            value:
+              "Continuo uses Chrome's local storage and storage change events to synchronize active sessions, settings, and other persistent state between open New Tab instances.",
+          },
+          {
+            type: "text",
+            value:
+              "This means starting or pausing a session in one tab can be reflected in another without requiring a backend or account system.",
+          },
+        ],
+      },
+
+      {
+        id: Math.floor(Math.random() * 9999),
+
+        subheading: "Local-first by design",
+
+        content: [
+          {
+            type: "text",
+            value:
+              "Continuo currently keeps its data entirely inside the browser. Focus history, settings, quick links, tasks, schedules, achievements, wallpapers, and active sessions are persisted locally.",
+          },
+          {
+            type: "text",
+            value:
+              "There is no account system and no external backend involved in the current version. The extension also makes no external network requests, with application assets such as fonts and wallpapers bundled locally.",
+          },
+          {
+            type: "text",
+            value:
+              "This approach keeps the product simple and private, while also making the architecture more lightweight. The tradeoff is that the current version does not provide cross-device synchronization or cloud backups.",
+          },
+        ],
+      },
+
+      {
+        id: Math.floor(Math.random() * 9999),
+
+        subheading: "From a timer to a record of work",
+
+        content: [
+          {
+            type: "text",
+            value:
+              "A focus timer by itself is useful, but it doesn't tell you much about what you actually did. That's why Continuo records completed and stopped sessions in History along with their duration, timestamps, intention, and optional accomplishment notes.",
+          },
+          {
+            type: "text",
+            value:
+              "History can be searched and filtered by status, timeframe, and duration. Statistics then turn that history into a simple view of total focus time, average session duration, completion rate, and recent focus trends.",
+          },
+          {
+            type: "text",
+            value:
+              "The goal isn't to judge productivity with a single score. It's to make previous work visible so you can understand how you have been spending your time.",
+          },
+
+          {
+            type: "image",
+            value:
+              "The goal isn't to judge productivity with a single score. It's to make previous work visible so you can understand how you have been spending your time.",
+            src: "/projects/continuo/continuo-3.webp",
+          },
+        ],
+      },
+
+      {
+        id: Math.floor(Math.random() * 9999),
+
+        subheading: "Why I added tasks, schedules, and achievements",
+
+        content: [
+          {
+            type: "text",
+            value:
+              "As Continuo evolved, I wanted the New Tab to be useful beyond the active timer without turning it into a full task-management application. Tasks provide a lightweight checklist, while the daily schedule gives users a simple way to map out time blocks and receive reminders.",
+          },
+          {
+            type: "text",
+            value:
+              "Achievements and streaks were added as optional layers of motivation. They are intentionally local and personal rather than competitive. There are no public leaderboards or social scores.",
+          },
+          {
+            type: "text",
+            value:
+              "These features are there when someone wants them, but they shouldn't get in the way when someone simply wants to open a tab and start working.",
+          },
+        ],
+      },
+
+      {
+        id: Math.floor(Math.random() * 9999),
+
+        subheading: "What building Continuo taught me",
+
+        content: [
+          {
+            type: "text",
+            value:
+              "The biggest lesson from building Continuo has been that adding functionality is easy compared to deciding what functionality actually belongs in a product.",
+          },
+          {
+            type: "text",
+            value:
+              "A feature can be useful on its own and still be wrong for the product. Every new idea has to be considered in the context of Continuo's central purpose: helping someone stay connected to the work they are already trying to do.",
+          },
+          {
+            type: "text",
+            value:
+              "Building a Chrome extension also introduced a different set of engineering problems than a typical web application. Persistence, New Tab overrides, browser permissions, multi-tab synchronization, session recovery, and extension-specific behavior all became part of the product rather than separate technical concerns.",
+          },
+        ],
+      },
+
+      {
+        id: Math.floor(Math.random() * 9999),
+
+        subheading: "Where Continuo goes from here",
+
+        content: [
+          {
+            type: "text",
+            value:
+              "V1 is intentionally a complete foundation rather than the final definition of Continuo. There are still limitations around areas such as cross-device synchronization, richer focus organization, and integrations.",
+          },
+          {
+            type: "text",
+            value:
+              "But I don't want to solve those problems simply because they are technically possible. The next version should come from observing how people actually use Continuo and understanding where the current experience falls short.",
+          },
+          {
+            type: "text",
+            value:
+              "For now, the goal is simple: build something that makes opening a new tab feel a little less like starting over.",
+          },
+        ],
+      },
+
+      {
+        id: Math.floor(Math.random() * 9999),
+
+        subheading: "Project Links",
+
+        content: [
+          {
+            type: "link",
+            title: "Chrome Web Store",
+            url: "https://chromewebstore.google.com/detail/continuo/gdikbnakhneidanfgmkfgfddgdhnakcj",
+            description:
+              "Install Continuo directly from the official Chrome Web Store.",
+          },
+          {
+            type: "link",
+            title: "Continuo Website",
+            url: "https://continuo-workspace.vercel.app/",
+            description:
+              "Explore the official live web application and workspace for Continuo.",
+          },
+        ],
+      },
+    ],
+  },
+
   {
     id: Math.floor(Math.random() * 9999),
 

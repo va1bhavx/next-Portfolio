@@ -8,18 +8,35 @@ import Pills from "@/components/ui/Pills";
 import { ImageCarousel } from "@/components/ui/ImageCarousel";
 import { ProjectData, PROJECTS } from "@/helper/data/ProjectData";
 import {
+  Award,
+  BarChart3,
+  Bell,
+  Bookmark,
+  Calendar,
   CheckCircle2,
+  Code2,
+  Database,
+  Flame,
   Github,
   Layers,
+  Layout,
   Link2,
+  ListTodo,
+  Lock,
+  Palette,
+  Plug,
+  RefreshCw,
+  Search,
+  ShieldCheck,
   Sparkles,
+  Timer,
   TrendingUp,
   TriangleAlert,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 const statusColorMap: Record<string, string> = {
   completed: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
@@ -30,76 +47,415 @@ const statusColorMap: Record<string, string> = {
 const getStatusColor = (status?: string) => {
   if (!status) return statusColorMap.archived;
   const key = status.toLowerCase();
-  if (key.includes("progress") || key.includes("wip")) return statusColorMap.wip;
+  if (key.includes("progress") || key.includes("wip"))
+    return statusColorMap.wip;
   if (key.includes("complet")) return statusColorMap.completed;
   return statusColorMap.archived;
 };
 
-const ListSection = ({
-  id,
-  title,
-  items,
-  icon,
+const getFeatureIcon = (text: string) => {
+  const lower = text.toLowerCase();
+  if (
+    lower.includes("timer") ||
+    lower.includes("clock") ||
+    lower.includes("focus time") ||
+    lower.includes("focus session") ||
+    lower.includes("controls")
+  ) {
+    return <Timer size={16} />;
+  }
+  if (lower.includes("streak") || lower.includes("habit")) {
+    return <Flame size={16} />;
+  }
+  if (lower.includes("achievement") || lower.includes("unlock")) {
+    return <Award size={16} />;
+  }
+  if (
+    lower.includes("stat") ||
+    lower.includes("trend") ||
+    lower.includes("visualiz") ||
+    lower.includes("chart")
+  ) {
+    return <BarChart3 size={16} />;
+  }
+  if (
+    lower.includes("search") ||
+    lower.includes("filter") ||
+    lower.includes("history")
+  ) {
+    return <Search size={16} />;
+  }
+  if (lower.includes("link") || lower.includes("quick link")) {
+    return <Bookmark size={16} />;
+  }
+  if (
+    lower.includes("task") ||
+    lower.includes("todo") ||
+    lower.includes("drawer")
+  ) {
+    return <ListTodo size={16} />;
+  }
+  if (lower.includes("schedule") || lower.includes("calendar")) {
+    return <Calendar size={16} />;
+  }
+  if (
+    lower.includes("notification") ||
+    lower.includes("sound") ||
+    lower.includes("bell")
+  ) {
+    return <Bell size={16} />;
+  }
+  if (
+    lower.includes("wallpaper") ||
+    lower.includes("background") ||
+    lower.includes("customiz") ||
+    lower.includes("theme") ||
+    lower.includes("color")
+  ) {
+    return <Palette size={16} />;
+  }
+  if (
+    lower.includes("recover") ||
+    lower.includes("restart") ||
+    lower.includes("reload") ||
+    lower.includes("sync")
+  ) {
+    return <RefreshCw size={16} />;
+  }
+  if (
+    lower.includes("local") ||
+    lower.includes("storage") ||
+    lower.includes("privacy") ||
+    lower.includes("keychain") ||
+    lower.includes("encrypt") ||
+    lower.includes("credential")
+  ) {
+    return <ShieldCheck size={16} />;
+  }
+  if (
+    lower.includes("database") ||
+    lower.includes("sqlite") ||
+    lower.includes("connection")
+  ) {
+    return <Database size={16} />;
+  }
+  if (
+    lower.includes("ast") ||
+    lower.includes("babel") ||
+    lower.includes("static analysis") ||
+    lower.includes("typescript") ||
+    lower.includes("dependency") ||
+    lower.includes("import") ||
+    lower.includes("esm")
+  ) {
+    return <Code2 size={16} />;
+  }
+  if (
+    lower.includes("auth") ||
+    lower.includes("login") ||
+    lower.includes("signup")
+  ) {
+    return <Lock size={16} />;
+  }
+  if (
+    lower.includes("api") ||
+    lower.includes("tmdb") ||
+    lower.includes("reddit") ||
+    lower.includes("endpoint") ||
+    lower.includes("request")
+  ) {
+    return <Plug size={16} />;
+  }
+  if (
+    lower.includes("workspace") ||
+    lower.includes("new tab") ||
+    lower.includes("interface") ||
+    lower.includes("ui") ||
+    lower.includes("desktop") ||
+    lower.includes("layout") ||
+    lower.includes("view")
+  ) {
+    return <Layout size={16} />;
+  }
+  return <Sparkles size={16} />;
+};
+
+const parseItem = (item: string) => {
+  if (item.includes(" — ")) {
+    const [title, ...rest] = item.split(" — ");
+    return { title: title.trim(), desc: rest.join(" — ").trim() };
+  }
+  if (item.includes(": ")) {
+    const [title, ...rest] = item.split(": ");
+    return { title: title.trim(), desc: rest.join(": ").trim() };
+  }
+  return { title: null, desc: item };
+};
+
+const KeyFeaturesSection = ({
+  features,
+  featureCategories,
 }: {
-  id: string;
-  title: string;
-  items: string[];
-  icon?: React.ReactNode;
-}) => (
-  <section id={id} className="flex flex-col gap-6 scroll-mt-24">
-    <Heading
-      tag="h2"
-      cn="text-xl text-neutral-100 font-bold flex items-center gap-2"
-    >
-      {icon}
-      {title}
-    </Heading>
+  features: string[];
+  featureCategories?: { category: string; items: string[] }[];
+}) => {
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
-    <div className="flex flex-col gap-3 leading-relaxed">
-      {items.map((item, i) => (
-        <Paragraph key={i} cn="text-neutral-400">
-          • {item}
-        </Paragraph>
-      ))}
-    </div>
-  </section>
-);
+  const categories =
+    featureCategories && featureCategories.length > 1
+      ? featureCategories
+      : null;
 
-const CardGrid = ({
-  id,
-  title,
-  items,
-  icon,
-}: {
-  id: string;
-  title: string;
-  items: string[];
-  icon?: React.ReactNode;
-}) => (
-  <section id={id} className="flex flex-col gap-6 scroll-mt-24">
-    <Heading
-      tag="h2"
-      cn="text-xl text-neutral-100 font-bold flex items-center gap-2"
-    >
-      {icon}
-      {title}
-    </Heading>
+  const displayedFeatures = useMemo(() => {
+    if (!categories || selectedCategory === "All") {
+      return features;
+    }
+    const cat = categories.find((c) => c.category === selectedCategory);
+    return cat ? cat.items : features;
+  }, [categories, selectedCategory, features]);
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      {items.map((item, i) => (
-        <div
-          key={i}
-          className="flex items-start gap-3 p-4 rounded-lg bg-neutral-900/50 border border-neutral-800"
+  return (
+    <section id="features" className="flex flex-col gap-6 scroll-mt-24">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <Heading
+          tag="h2"
+          cn="text-xl text-neutral-100 font-bold flex items-center gap-2"
         >
-          <CheckCircle2 size={16} className="text-neutral-500 shrink-0 mt-0.5" />
-          <Paragraph cn="text-neutral-300 text-sm leading-relaxed">
-            {item}
-          </Paragraph>
+          <Sparkles size={18} className="text-emerald-400" />
+          Key Features
+        </Heading>
+
+        <span className="text-xs text-neutral-500 font-mono">
+          {features.length} capabilities
+        </span>
+      </div>
+
+      {/* Category Segmented Navigation (if categories available) */}
+      {categories && (
+        <div className="flex flex-wrap gap-1.5  w-fit">
+          <button
+            type="button"
+            onClick={() => setSelectedCategory("All")}
+            className={`
+              text-xs px-3 py-1.5 rounded-lg border transition-all cursor-pointer font-medium
+              ${
+                selectedCategory === "All"
+                  ? "bg-neutral-800 text-neutral-100 border-neutral-700 shadow-sm"
+                  : "bg-transparent text-neutral-400 border-transparent hover:text-neutral-200 hover:bg-neutral-800/40"
+              }
+            `}
+          >
+            All ({features.length})
+          </button>
+          {categories.map((cat) => {
+            const isSelected = selectedCategory === cat.category;
+            return (
+              <button
+                key={cat.category}
+                type="button"
+                onClick={() => setSelectedCategory(cat.category)}
+                className={`
+                  text-xs px-3 py-1.5 rounded-lg border transition-all cursor-pointer font-medium
+                  ${
+                    isSelected
+                      ? "bg-neutral-800 text-neutral-100 border-neutral-700 shadow-sm"
+                      : "bg-transparent text-neutral-400 border-transparent hover:text-neutral-200 hover:bg-neutral-800/40"
+                  }
+                `}
+              >
+                {cat.category} ({cat.items.length})
+              </button>
+            );
+          })}
         </div>
-      ))}
+      )}
+
+      {/* Features Grid with dual-tier typography */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        {displayedFeatures.map((item, i) => {
+          const { title, desc } = parseItem(item);
+
+          return (
+            <div
+              key={item}
+              className="
+                group relative flex items-start gap-3.5 p-4 rounded-xl
+                bg-neutral-900/30 border border-neutral-800/60
+                hover:border-neutral-700/80 hover:bg-neutral-900/60
+                transition-all duration-200
+              "
+            >
+              {/* Feature Icon */}
+              <div
+                className="
+                  flex items-center justify-center w-8 h-8 rounded-lg shrink-0 mt-0.5
+                  bg-neutral-800/60 border border-neutral-700/50 text-neutral-400
+                  group-hover:text-emerald-400 group-hover:border-emerald-500/30 group-hover:bg-emerald-500/10
+                  transition-colors duration-200
+                "
+              >
+                {getFeatureIcon(title || desc)}
+              </div>
+
+              {/* Feature Text */}
+              <div className="flex flex-col gap-0.5 min-w-0 flex-1">
+                {title ? (
+                  <>
+                    <h3 className="text-sm font-medium text-neutral-100 group-hover:text-white transition-colors">
+                      {title}
+                    </h3>
+                    <Paragraph cn="text-xs text-neutral-400 leading-relaxed">
+                      {desc}
+                    </Paragraph>
+                  </>
+                ) : (
+                  <Paragraph cn="text-sm text-neutral-300 group-hover:text-neutral-100 leading-relaxed font-normal">
+                    {desc}
+                  </Paragraph>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+};
+
+const ChallengesSection = ({ items }: { items: string[] }) => (
+  <section id="challenges" className="flex flex-col gap-6 scroll-mt-24">
+    {/* Header */}
+    <div className="flex items-center justify-between gap-3">
+      <Heading
+        tag="h2"
+        cn="text-xl text-neutral-100 font-bold flex items-center gap-2"
+      >
+        <TriangleAlert size={18} className="text-amber-400/90" />
+        Engineering Challenges
+      </Heading>
+
+      <span className="text-xs text-neutral-500 font-mono">
+        {items.length} hurdles solved
+      </span>
+    </div>
+
+    {/* Stepped Engineering Timeline */}
+    <div className="relative pl-8 sm:pl-10 space-y-5 before:absolute before:left-3.5 sm:before:left-4 before:top-3 before:bottom-3 before:w-px before:bg-gradient-to-b before:from-amber-500/40 before:via-neutral-800 before:to-transparent">
+      {items.map((item, i) => {
+        const num = i + 1 < 10 ? `0${i + 1}` : `${i + 1}`;
+        const { title, desc } = parseItem(item);
+
+        return (
+          <div key={i} className="relative group">
+            {/* Step Node */}
+            <div
+              className="
+                absolute -left-8 sm:-left-10 top-0.5 w-7 h-7 rounded-full
+                bg-neutral-950 border border-neutral-800
+                group-hover:border-amber-500/60 group-hover:bg-amber-500/10
+                flex items-center justify-center text-[11px] font-mono
+                text-neutral-400 group-hover:text-amber-400 font-medium
+                transition-all duration-200
+              "
+            >
+              {num}
+            </div>
+
+            {/* Content */}
+            <div className="flex flex-col gap-0.5">
+              {title ? (
+                <>
+                  <h3 className="text-sm font-medium text-neutral-200 group-hover:text-white transition-colors">
+                    {title}
+                  </h3>
+                  <Paragraph cn="text-xs sm:text-[13px] text-neutral-400 leading-relaxed">
+                    {desc}
+                  </Paragraph>
+                </>
+              ) : (
+                <Paragraph cn="text-sm text-neutral-300 group-hover:text-neutral-100 leading-relaxed">
+                  {desc}
+                </Paragraph>
+              )}
+            </div>
+          </div>
+        );
+      })}
     </div>
   </section>
 );
+
+const OutcomesSection = ({ outcomes }: { outcomes: string[] }) => {
+  if (!outcomes || outcomes.length === 0) return null;
+
+  return (
+    <section id="outcomes" className="flex flex-col gap-6 scroll-mt-24">
+      {/* Header */}
+      <div className="flex items-center justify-between gap-3">
+        <Heading
+          tag="h2"
+          cn="text-xl text-neutral-100 font-bold flex items-center gap-2"
+        >
+          <TrendingUp size={18} className="text-emerald-400" />
+          Outcomes & Impact
+        </Heading>
+
+        <span className="text-xs text-neutral-500 font-mono">
+          {outcomes.length} milestones delivered
+        </span>
+      </div>
+
+      {/* Impact Deliverables Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        {outcomes.map((item, idx) => {
+          const { title, desc } = parseItem(item);
+
+          return (
+            <div
+              key={idx}
+              className="
+                group relative flex items-start gap-3.5 p-4 rounded-xl
+                bg-gradient-to-br from-emerald-500/[0.04] to-neutral-900/20
+                border border-emerald-500/15 hover:border-emerald-500/35
+                hover:bg-emerald-500/[0.07] transition-all duration-200
+              "
+            >
+              {/* Checkmark Icon */}
+              <div
+                className="
+                  w-7 h-7 rounded-lg bg-emerald-500/10 border border-emerald-500/20
+                  text-emerald-400 flex items-center justify-center shrink-0 mt-0.5
+                  group-hover:scale-105 transition-transform
+                "
+              >
+                <CheckCircle2 size={15} />
+              </div>
+
+              {/* Text */}
+              <div className="flex flex-col gap-0.5 min-w-0 flex-1">
+                {title ? (
+                  <>
+                    <h3 className="text-sm font-medium text-neutral-100 group-hover:text-white transition-colors">
+                      {title}
+                    </h3>
+                    <Paragraph cn="text-xs text-neutral-300/90 leading-relaxed">
+                      {desc}
+                    </Paragraph>
+                  </>
+                ) : (
+                  <Paragraph cn="text-sm text-neutral-300 group-hover:text-neutral-100 leading-relaxed">
+                    {desc}
+                  </Paragraph>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+};
 
 const Sidebar = ({
   project,
@@ -217,10 +573,18 @@ const ProjectDetails = () => {
   const sections = [
     { id: "overview", label: "Overview" },
     { id: "tech-stack", label: "Tech Stack" },
-    ...(project.features?.length ? [{ id: "features", label: "Key Features" }] : []),
-    ...(project.challenges?.length ? [{ id: "challenges", label: "Challenges" }] : []),
-    ...(project.outcomes?.length ? [{ id: "outcomes", label: "Outcomes" }] : []),
-    ...(project.images?.length ? [{ id: "screenshots", label: "Screenshots" }] : []),
+    ...(project.features?.length
+      ? [{ id: "features", label: "Key Features" }]
+      : []),
+    ...(project.challenges?.length
+      ? [{ id: "challenges", label: "Challenges" }]
+      : []),
+    ...(project.outcomes?.length
+      ? [{ id: "outcomes", label: "Outcomes" }]
+      : []),
+    ...(project.images?.length
+      ? [{ id: "screenshots", label: "Screenshots" }]
+      : []),
   ];
 
   const status = project.statusVariant || project.status;
@@ -299,7 +663,10 @@ const ProjectDetails = () => {
           <div className="flex-1 min-w-0 flex flex-col gap-14">
             {/* Overview */}
             {(project.description || project.snippet) && (
-              <section id="overview" className="flex flex-col gap-4 scroll-mt-24">
+              <section
+                id="overview"
+                className="flex flex-col gap-4 scroll-mt-24"
+              >
                 <Heading tag="h2" cn="text-xl text-neutral-100 font-bold">
                   Overview
                 </Heading>
@@ -317,7 +684,10 @@ const ProjectDetails = () => {
 
             {/* Tech Stack */}
             {(project.techStack?.length || project.primaryTech) && (
-              <section id="tech-stack" className="flex flex-col gap-4 scroll-mt-24">
+              <section
+                id="tech-stack"
+                className="flex flex-col gap-4 scroll-mt-24"
+              >
                 <Heading tag="h2" cn="text-xl text-neutral-100 font-bold">
                   Tech Stack
                 </Heading>
@@ -337,37 +707,28 @@ const ProjectDetails = () => {
 
             {/* Features */}
             {project.features && project.features.length > 0 && (
-              <CardGrid
-                id="features"
-                title="Key Features"
-                items={project.features}
-                icon={<Sparkles size={18} className="text-neutral-500" />}
+              <KeyFeaturesSection
+                features={project.features}
+                featureCategories={project.featureCategories}
               />
             )}
 
             {/* Challenges */}
             {project.challenges && project.challenges.length > 0 && (
-              <ListSection
-                id="challenges"
-                title="Challenges"
-                items={project.challenges}
-                icon={<TriangleAlert size={18} className="text-neutral-500" />}
-              />
+              <ChallengesSection items={project.challenges} />
             )}
 
             {/* Outcomes */}
             {project.outcomes && project.outcomes.length > 0 && (
-              <CardGrid
-                id="outcomes"
-                title="Outcomes"
-                items={project.outcomes}
-                icon={<TrendingUp size={18} className="text-neutral-500" />}
-              />
+              <OutcomesSection outcomes={project.outcomes} />
             )}
 
             {/* Gallery */}
             {project.images && project.images.length > 0 && (
-              <section id="screenshots" className="flex flex-col gap-4 scroll-mt-24">
+              <section
+                id="screenshots"
+                className="flex flex-col gap-4 scroll-mt-24"
+              >
                 <Heading tag="h2" cn="text-xl text-neutral-100 font-bold">
                   Screenshots
                 </Heading>
