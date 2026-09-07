@@ -1,5 +1,6 @@
 import React from "react";
 import Experience from "./experience";
+import { SITE_URL } from "@/helper/data/common";
 
 import type { Metadata } from "next";
 
@@ -13,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: "Experience | Vaibhav Kumar",
       description:
         "Work experience and case studies highlighting frontend engineering and product development contributions.",
-      url: "https://kumarvaibhav.xyz/experience",
+      url: `${SITE_URL}/experience`,
       images: [
         {
           url: "/banner.png",

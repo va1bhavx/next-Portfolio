@@ -5,6 +5,7 @@ import ScrollToTop from "@/components/web/Home/ScrollToTop";
 
 import { Inter, Roboto } from "next/font/google";
 import { getRootGraphSchema } from "@/helper/seo/schema";
+import { SITE_URL } from "@/helper/data/common";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -42,21 +43,21 @@ export const metadata: Metadata = {
   publisher: "Vaibhav Kumar",
   applicationName: "Vaibhav Kumar Portfolio",
 
-  metadataBase: new URL("https://kumarvaibhav.xyz"),
+  metadataBase: new URL(SITE_URL),
 
   alternates: {
-    canonical: "https://kumarvaibhav.xyz",
+    canonical: SITE_URL,
   },
 
   openGraph: {
     title: "Vaibhav Kumar – React & NextJS Developer",
     description:
       "Portfolio of Vaibhav Kumar showcasing modern web applications, frontend engineering, and production-grade projects.",
-    url: "https://kumarvaibhav.xyz",
+    url: SITE_URL,
     siteName: "Vaibhav Kumar Portfolio",
     images: [
       {
-        url: "https://kumarvaibhav.xyz/banner.png",
+        url: "/banner.png",
         width: 1200,
         height: 630,
         alt: "Vaibhav Kumar Portfolio",
@@ -72,7 +73,7 @@ export const metadata: Metadata = {
     description:
       "Frontend developer building scalable React & NextJS applications.",
     creator: "@va1bhavx",
-    images: ["https://kumarvaibhav.xyz/banner.png"],
+    images: ["/banner.png"],
   },
 
   icons: {

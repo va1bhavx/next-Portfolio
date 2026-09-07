@@ -2,9 +2,10 @@ import type { MetadataRoute } from "next";
 import { PROJECTS } from "@/helper/data/ProjectData";
 import { EXPERIENCE } from "@/helper/data/ExperienceData";
 import { Logs } from "@/helper/data/LogData";
+import { SITE_URL } from "@/helper/data/common";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://kumarvaibhav.xyz";
+  const baseUrl = SITE_URL;
 
   // Static pages
   const staticRoutes = [
@@ -13,11 +14,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
     },
     {
+      url: `${baseUrl}/about`,
+      lastModified: new Date(),
+    },
+    {
       url: `${baseUrl}/projects`,
       lastModified: new Date(),
     },
     {
       url: `${baseUrl}/experience`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/logs`,
       lastModified: new Date(),
     },
   ];
