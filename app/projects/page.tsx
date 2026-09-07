@@ -1,5 +1,6 @@
 import Projects from "./projects";
 import { Metadata } from "next";
+import { SITE_URL } from "@/helper/data/common";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -11,7 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: "Projects | Vaibhav Kumar",
       description:
         "A collection of real-world projects showcasing scalable and modern frontend development.",
-      url: "https://kumarvaibhav.xyz/projects",
+      url: `${SITE_URL}/projects`,
       images: [
         {
           url: "/banner.png",

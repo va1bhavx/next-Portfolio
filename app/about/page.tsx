@@ -1,6 +1,7 @@
 import React from "react";
 import AboutPage from "./AboutPage";
 import type { Metadata } from "next";
+import { SITE_URL } from "@/helper/data/common";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -12,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: "About | Vaibhav Kumar",
       description:
         "The story, journey, and quirks behind Vaibhav Kumar — frontend developer building real products, not just tutorials.",
-      url: "https://kumarvaibhav.xyz/about",
+      url: `${SITE_URL}/about`,
       images: [
         {
           url: "/banner.png",

@@ -1,5 +1,6 @@
 import Logs from "@/components/web/Logs/Logs";
 import type { Metadata } from "next";
+import { SITE_URL } from "@/helper/data/common";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -11,7 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: "Logs | Vaibhav Kumar",
       description:
         "Engineering logs documenting real product development, experiments, and lessons learned while building modern web applications.",
-      url: "https://kumarvaibhav.xyz/logs",
+      url: `${SITE_URL}/logs`,
       images: [
         {
           url: "/banner.png",
